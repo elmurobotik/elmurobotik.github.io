@@ -1,0 +1,349 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="id" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Robot Operating System (ROS) &mdash; Dokumentasi Elmu Robotik 0.1.0</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="author" title="Tentang dokumen ini" href="../about.html" />
+    <link rel="index" title="Indeks" href="../genindex.html" />
+    <link rel="search" title="Pencarian" href="../search.html" />
+    <link rel="next" title="ROS Beginner" href="index.html" />
+    <link rel="prev" title="Video Tutorials" href="../video_tutorials.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Elmu Robotik
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">Selayang Pandang</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../video_tutorials.html">Video Tutorials</a></li>
+</ul>
+<p class="caption"><span class="caption-text">ROS Tutorials</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Robot Operating System (ROS)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#fitur-ros">Fitur ROS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#komponen-dasar-ros">Komponen dasar ROS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#instalasi-ros">Instalasi ROS</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">ROS Beginner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ros_intermediate/index.html">ROS Intermediate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ros_advanced/index.html">ROS Advanced</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Robotics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../robotics_projects/index.html">Robotics Projects</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Machine Learning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../machine_learning_projects/index.html">Machine Learning Projects</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Embedded Systems</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../embedded_systems/index.html">Embedded Systems</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Elmu Robotik</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Robot Operating System (ROS)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/ros_beginners/about_ros.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="robot-operating-system-ros">
+<span id="about-ros"></span><h1>Robot Operating System (ROS)<a class="headerlink" href="#robot-operating-system-ros" title="Link permanen untuk headline ini">¶</a></h1>
+<p>Robot Operating System (ROS) adalah sebuat tool atau disebut juga <cite>middleware</cite>
+yang sudah sangat populer di kalangan para robotic researchers. ROS juga sangat
+banyak digunakan di industri, dan saat ini ROS adalah <cite>must-have</cite> atau suatu keharusan di bidang robotics.</p>
+<p>ROS pertama kali dikembangkan di lab Willow Garage pada tahun 2007 di Stanford University.
+Proses pengembangan tersebut melibatkan banyak researchers dari pakar robotik.
+Hinggal awal tahun 2009. ROS 0.4 dirilis dan setahun setalahnya ROS 1.0 pun di release.
+Setiap 2 tahun, ROS me-release versi LTS nya, dan sampai tahun 2021, versi LTS
+terakhir adalah Noetic yang di-release tahun 2020. Namun sejak tahun 2018, OSRF,
+yang merupakan organisasi induk dari ROS, me-release ROS 2 versi LTS (selama 2 tahun).
+Akan tetapi, adopsi dari ROS 2 baik di industri maupun akademi, masih belum masif
+di tahun 2021.</p>
+<p>ROS saat ini fully support Linux, namun juga bisa di install di Windows.
+Instalasi ROS juga bisa dilakukan meskipun Linux tersebut hanya berjalan di virtual box,
+semisal ada pengguna yang cukup cinta sama Windows dan tidak mau menginstall Linux,
+bisa menggunakan virtual box, install Linux kemudian install ROS nya.</p>
+<div class="section" id="fitur-ros">
+<h2>Fitur ROS<a class="headerlink" href="#fitur-ros" title="Link permanen untuk headline ini">¶</a></h2>
+<ul>
+<li><p>Standard message-ing yang memungkinkan developer untuk mengeneralisir sebuah pesan,
+yang berarti sebuah pesan bisa digunakan misalnya untuk dua bahasa pemrograman seperti
+python dan C++ tanpa harus mengubah strukturnya.</p></li>
+<li><p>Robot geometry library (tf): memungkinkan kita melakukan transform, rotasi, dll.</p>
+<div class="figure align-center" id="id1">
+<img alt="Contoh tf" src="../_images/tf.jpg" />
+<p class="caption"><span class="caption-text">Contoh tf (source: <a class="reference external" href="http://wiki.ros.org/tf">http://wiki.ros.org/tf</a>)</span><a class="headerlink" href="#id1" title="Link permanen untuk gambar ini">¶</a></p>
+</div>
+</li>
+<li><p>Robot description language seperti <cite>xacro</cite></p></li>
+<li><p>Preemtable remote procedure yang memungkinkan robot untuk menunda sebuah action
+apabila ada kendala saat melakukannya</p></li>
+<li><p>Diagnostic memungkinkan developer untuk memonitor hardware seperti check kapasitas battery</p></li>
+<li><p>Navigation stack adalah software package tersedia di ROS dimana data dari odometry,
+dan/sensor lain, destinasi di proses sehingga menghasilkan <cite>velocity commands</cite>
+yang dikirim ke base robot agar bisa bernavigasi.</p></li>
+<li><p>rqt: memungkinkan kita untuk melihat nodes yang sedang berjalan, <cite>configuratiron</cite>,
+visualisasi data sensor, dll.</p></li>
+<li><p>RVIZ: memungkinkan kita untuk memvisualisasi robot dengan GUI.</p>
+<div class="figure align-center" id="id2">
+<img alt="Visualisasi dengan RVIZ" src="../_images/rviz_youbot.jpg" />
+<p class="caption"><span class="caption-text">Visualisasi dengan RVIZ</span><a class="headerlink" href="#id2" title="Link permanen untuk gambar ini">¶</a></p>
+</div>
+</li>
+<li><p>Kemudahan ketika digunakan dengan library/software robotics Elain seperti:</p>
+<ul class="simple">
+<li><p><strong>Gazebo</strong>: memungkinkan kita untuk membuat 3d simulasi dari robotnya dengan
+kinemtik physics misalnya inersia dari sebuah arm. Ada banyak simulasi yang
+lain yang sudah terintegrasi dengan ros seperti stage.</p></li>
+<li><p><strong>OpenCV</strong></p></li>
+<li><p><strong>PointCloud library</strong>: memungkinkan kita untuk melakukan 3d scanning menggunakan
+depth camera atau laser.</p></li>
+<li><p><strong>MoveIt</strong>: adalah sebuah motion planning library yang digunakan misalnya untuk
+robot arm atau humanoid robotics. Salah satu fitur yang banyak digunakan adalah
+<cite>self-collision checks</cite>.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="komponen-dasar-ros">
+<h2>Komponen dasar ROS<a class="headerlink" href="#komponen-dasar-ros" title="Link permanen untuk headline ini">¶</a></h2>
+<ul class="simple">
+<li><p><strong>ROS master</strong>: menyediakan penamaan dan registrasi dari setiap node yang berjalan,
+mentracking setiap publisher dan subscriber kepada topics dan service. Ini adalah
+syarat utama agar ROS bisa berjalan, karena ROS masterlah yang bertanggung jawab
+atas semua aktifitas dalam system itu sendiri.</p></li>
+<li><p><strong>Node</strong>: merupakan executable program yang melakukan komputasi. Ini sama seperti main,
+dimana semua topic dan service di publish berdasarkan node. Setiap topic dan service
+memiliki node yang menjalankan mereka. Setiap node yang berjalan di ROS master
+memiliki identitas unik yang berbeda satu sama lain. Node yang satu bisa berkomunikasi
+dengan node yang lain melalui topic, misalnya node_a mempublish message bertipe string melalui topic_x,
+kemudian node_b mensubscribe ke topic_x dan mendapatkan data dari node_a. Begitupula sebaliknya.</p></li>
+<li><p><strong>Messages</strong>: merupakan sebuah interface definition language (IDL) yang di bungkus
+dalam file .msg. Message juga mendukung tipe data dasar seperti int, string,
+float, boolean dll. Message juga bisa mendeklarasikan message yang lain.
+Sebuah message juga bisa mendeklarasikan sebuah array dari message yang lain.</p></li>
+<li><p><strong>Topic</strong>: digunakan untuk komunikasi antar node-node. Setiap topik di berisi
+informasi yang bersesuaian dengan tipe message yang digunakan. Misalnya sebua
+message_a yang berisi satu variable integer dan satu variable string, di publish
+oleh sebuah topic_a, kemudian setiap node yang men-subscribe ke topic_a tersebut
+harus juga memiliki tipe message_a. Satu node bisa mem-publish lebih dari satu topic
+dan bisa men-subscribe lebih dari satu topic.</p></li>
+<li><p><strong>Service</strong>: juga merupakan alat komunikasi, namun lebih fleksibel daripada topic.
+Dikarenakan sebuah service hanya bisa dipanggil apabila diperlukan. Misalnya kita
+bisa membuat sebuah service untuk mendeteksi sebuah objek dari kamera,
+dan sebuah node bisa memanggil service ini apabila diperlukan saja. Perbedaannya
+dengan topic adalah bahwa topic akan terus menerus mem-publish sebuah data apabila
+ada dan sebuah node akan men-subscribe terus menerus ke sebuah topic. Sedangkan service
+hanya dipanggil apabila sedang dibutuhkan. Keduanya sangat penting dan akan dijelaskan
+lebih jauh melalui video kami nanti, dengan contohnya pula.</p></li>
+</ul>
+<p>Perbedaan utama antara Topic dan Service</p>
+<ul class="simple">
+<li><p><em>Topic</em>: digunakan untuk data yang berkelanjutan, misalnya data dari sensor.
+Penerima data dari topic tertentu akan segera memproses data tersebut melalui callback.</p></li>
+<li><p><em>Service</em>: digunakan pada saat dibutuhkan, misalnya meminta robot untuk
+menggerakkan motor dan akan berhenti melakukan permintaan secara cepat. Service
+tidak akan melakukan apa-apa apabila tidak sedang diminta melakukan sesuatu.</p></li>
+</ul>
+</div>
+<div class="section" id="instalasi-ros">
+<h2>Instalasi ROS<a class="headerlink" href="#instalasi-ros" title="Link permanen untuk headline ini">¶</a></h2>
+<p>Saat ini ROS memiliki versi sendiri bergantung versi Ubuntu nya, misal Ubuntu 20.04
+bisa diinstall ROS 1 <cite>noetic</cite> dan ROS 2 <cite>foxy</cite>.</p>
+<p>Untuk lebih lengkap mengenai langkah-langkah instalasi ROS, silahkan kunjungi
+website resmi:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="http://wiki.ros.org/noetic/Installation">ROS 1 noetic</a></p></li>
+<li><p><a class="reference external" href="https://docs.ros.org/en/crystal/Installation/Linux-Install-Binary.html">Install ROS 2</a></p></li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="index.html" class="btn btn-neutral float-right" title="ROS Beginner" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../video_tutorials.html" class="btn btn-neutral float-left" title="Video Tutorials" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Hak cipta 2021, Elmu Robotik.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

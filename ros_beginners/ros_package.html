@@ -1,0 +1,338 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="id" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Membuat ROS Package &mdash; Dokumentasi Elmu Robotik 0.1.0</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="author" title="Tentang dokumen ini" href="../about.html" />
+    <link rel="index" title="Indeks" href="../genindex.html" />
+    <link rel="search" title="Pencarian" href="../search.html" />
+    <link rel="next" title="Topics (Publisher-Subscriber)" href="simple_publisher_subscriber.html" />
+    <link rel="prev" title="ROS Beginner" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Elmu Robotik
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">Selayang Pandang</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../video_tutorials.html">Video Tutorials</a></li>
+</ul>
+<p class="caption"><span class="caption-text">ROS Tutorials</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="about_ros.html">Robot Operating System (ROS)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">ROS Beginner</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Membuat ROS Package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cmakelists-txt">CMakeLists.txt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#package-xml">package.xml</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="simple_publisher_subscriber.html">Topics (Publisher-Subscriber)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simple_service_client.html">Services (Server-Client)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="custom_messages.html">Kostum messages, srv dan action</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ros_launch.html">ROS Launch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ros2.html">ROS 2</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ros_intermediate/index.html">ROS Intermediate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ros_advanced/index.html">ROS Advanced</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Robotics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../robotics_projects/index.html">Robotics Projects</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Machine Learning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../machine_learning_projects/index.html">Machine Learning Projects</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Embedded Systems</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../embedded_systems/index.html">Embedded Systems</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Elmu Robotik</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">ROS Beginner</a> &raquo;</li>
+        
+      <li>Membuat ROS Package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/ros_beginners/ros_package.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="membuat-ros-package">
+<span id="ros-package"></span><h1>Membuat ROS Package<a class="headerlink" href="#membuat-ros-package" title="Link permanen untuk headline ini">¶</a></h1>
+<p>ROS package adalah sebuah <cite>directory</cite> dimana source dari software itu berada.
+Selain itu, library, dataset, message, service, dan action files, <cite>third-party</cite>
+modules juga berada di dalam directory tersebut. Lebih detail mengenai ROS
+package bisa di baca lebih lengkap <a class="reference external" href="http://wiki.ros.org/Packages">disini</a>.</p>
+<p>Berikut contoh membuat ROS package</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#cd ke catkin workspace, kemudian src</span>
+<span class="nb">cd</span> ros_catkin_ws/src
+
+<span class="c1">#add required libraries as arguments for catkin_create_pkg</span>
+catkin_create_pkg rospy roscpp std_msgs
+</pre></div>
+</div>
+<p>Dengan command <cite>catkin_create_pkg</cite>, <cite>CMakeLists.txt</cite> dan <cite>package.xml</cite> akan
+terbuat otomatis dan <cite>dependencies</cite> yang di berikan pada command tersebut
+secara otomatis akan ada di dalam kedua file tersebut.</p>
+<div class="section" id="cmakelists-txt">
+<h2>CMakeLists.txt<a class="headerlink" href="#cmakelists-txt" title="Link permanen untuk headline ini">¶</a></h2>
+<p>Berikut adalah contoh <cite>CMakeLists.txt</cite> pada package
+<a class="reference external" href="https://github.com/elmurobotik/ros-tutorials/tree/master/ros-beginners/roscpp_simple_service_client">roscpp_simple_service_client</a>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="lineno"> 0 </span>cmake_minimum_required<span class="o">(</span>VERSION <span class="m">2</span>.8.3<span class="o">)</span>
+<span class="lineno"> 1 </span>project<span class="o">(</span>roscpp_simple_service_client<span class="o">)</span>
+<span class="lineno"> 2 </span>
+<span class="lineno"> 3 </span><span class="c1">## Compile as C++11, supported in ROS Kinetic and newer</span>
+<span class="lineno"> 4 </span>add_compile_options<span class="o">(</span>-std<span class="o">=</span>c++11<span class="o">)</span>
+<span class="lineno"> 5 </span>
+<span class="lineno"> 6 </span>find_package<span class="o">(</span>catkin REQUIRED COMPONENTS
+<span class="lineno"> 7 </span>  ros_custom_msgs
+<span class="lineno"> 8 </span>  roscpp
+<span class="lineno"> 9 </span><span class="o">)</span>
+<span class="lineno">10 </span>
+<span class="lineno">11 </span>catkin_package<span class="o">(</span>
+<span class="lineno">12 </span><span class="o">)</span>
+<span class="lineno">13 </span>
+<span class="lineno">14 </span>include_directories<span class="o">(</span>
+<span class="lineno">15 </span><span class="c1"># include</span>
+<span class="lineno">16 </span>  <span class="si">${</span><span class="nv">catkin_INCLUDE_DIRS</span><span class="si">}</span>
+<span class="lineno">17 </span><span class="o">)</span>
+<span class="lineno">18 </span>
+<span class="lineno">19 </span><span class="c1">#Executable</span>
+<span class="lineno">20 </span>add_executable<span class="o">(</span>simple_server
+<span class="lineno">21 </span>  ros/src/simple_server.cpp
+<span class="lineno">22 </span><span class="o">)</span>
+<span class="lineno">23 </span>add_dependencies<span class="o">(</span>simple_server 
+<span class="lineno">24 </span>  <span class="si">${</span><span class="nv">catkin_EXPORTED_TARGETS</span><span class="si">}</span>
+<span class="lineno">25 </span><span class="o">)</span>
+<span class="lineno">26 </span>target_link_libraries<span class="o">(</span>simple_server
+<span class="lineno">27 </span>  <span class="si">${</span><span class="nv">catkin_LIBRARIES</span><span class="si">}</span>
+<span class="lineno">28 </span><span class="o">)</span>
+<span class="lineno">29 </span>
+<span class="lineno">30 </span>add_executable<span class="o">(</span>simple_client
+<span class="lineno">31 </span>  ros/src/simple_client.cpp
+<span class="lineno">32 </span><span class="o">)</span>
+<span class="lineno">33 </span>add_dependencies<span class="o">(</span>simple_client
+<span class="lineno">34 </span>  <span class="si">${</span><span class="nv">catkin_EXPORTED_TARGETS</span><span class="si">}</span>
+<span class="lineno">35 </span><span class="o">)</span>
+<span class="lineno">36 </span>target_link_libraries<span class="o">(</span>simple_client
+<span class="lineno">37 </span>  <span class="si">${</span><span class="nv">catkin_LIBRARIES</span><span class="si">}</span>
+<span class="lineno">38 </span><span class="o">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="package-xml">
+<h2>package.xml<a class="headerlink" href="#package-xml" title="Link permanen untuk headline ini">¶</a></h2>
+<p>Semua dependencies yang dibutuhkan dari package tersebut harus di definisikan dalam file ini.</p>
+<p>Berikut adalah contoh <cite>package.xml</cite> pada package
+<a class="reference external" href="https://github.com/elmurobotik/ros-tutorials/tree/master/ros-beginners/roscpp_simple_service_client">roscpp_simple_service_client</a>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="lineno"> 0 </span>&lt;?xml <span class="nv">version</span><span class="o">=</span><span class="s2">&quot;1.0&quot;</span>?&gt;
+<span class="lineno"> 1 </span>&lt;package <span class="nv">format</span><span class="o">=</span><span class="s2">&quot;2&quot;</span>&gt;
+<span class="lineno"> 2 </span>  &lt;name&gt;roscpp_simple_service_client&lt;/name&gt;
+<span class="lineno"> 3 </span>  &lt;version&gt;0.0.0&lt;/version&gt;
+<span class="lineno"> 4 </span>  &lt;description&gt;The roscpp_simple_service_client package&lt;/description&gt;
+<span class="lineno"> 5 </span>
+<span class="lineno"> 6 </span>  &lt;author <span class="nv">email</span><span class="o">=</span><span class="s2">&quot;mwasil@outlook.co.id&quot;</span>&gt;Mohammad Wasil&lt;/author&gt;
+<span class="lineno"> 7 </span>  &lt;maintainer <span class="nv">email</span><span class="o">=</span><span class="s2">&quot;mwasil@outlook.co.id&quot;</span>&gt;Mohammad Wasil&lt;/maintainer&gt;
+<span class="lineno"> 8 </span>
+<span class="lineno"> 9 </span>  &lt;license&gt;GPL-3.0&lt;/license&gt;
+<span class="lineno">10 </span>
+<span class="lineno">11 </span>  &lt;buildtool_depend&gt;catkin&lt;/buildtool_depend&gt;
+<span class="lineno">12 </span>  &lt;build_depend&gt;ros_custom_msgs&lt;/build_depend&gt;
+<span class="lineno">13 </span>  &lt;build_depend&gt;roscpp&lt;/build_depend&gt;
+<span class="lineno">14 </span>  
+<span class="lineno">15 </span>  &lt;build_export_depend&gt;ros_custom_msgs&lt;/build_export_depend&gt;
+<span class="lineno">16 </span>  &lt;build_export_depend&gt;roscpp&lt;/build_export_depend&gt;
+<span class="lineno">17 </span>  
+<span class="lineno">18 </span>  &lt;exec_depend&gt;ros_custom_msgs&lt;/exec_depend&gt;
+<span class="lineno">19 </span>  &lt;exec_depend&gt;roscpp&lt;/exec_depend&gt;
+<span class="lineno">20 </span>
+<span class="lineno">21 </span>&lt;/package&gt;
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="simple_publisher_subscriber.html" class="btn btn-neutral float-right" title="Topics (Publisher-Subscriber)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="ROS Beginner" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Hak cipta 2021, Elmu Robotik.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

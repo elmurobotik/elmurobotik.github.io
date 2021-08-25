@@ -1,0 +1,367 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="id" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Kostum messages, srv dan action &mdash; Dokumentasi Elmu Robotik 0.1.0</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="author" title="Tentang dokumen ini" href="../about.html" />
+    <link rel="index" title="Indeks" href="../genindex.html" />
+    <link rel="search" title="Pencarian" href="../search.html" />
+    <link rel="next" title="ROS Launch" href="ros_launch.html" />
+    <link rel="prev" title="Services (Server-Client)" href="simple_service_client.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Elmu Robotik
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">Selayang Pandang</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../video_tutorials.html">Video Tutorials</a></li>
+</ul>
+<p class="caption"><span class="caption-text">ROS Tutorials</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="about_ros.html">Robot Operating System (ROS)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">ROS Beginner</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ros_package.html">Membuat ROS Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simple_publisher_subscriber.html">Topics (Publisher-Subscriber)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simple_service_client.html">Services (Server-Client)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Kostum messages, srv dan action</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#membuat-kostum-srv-file">Membuat kostum srv file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#membuat-kostum-msg-file">Membuat kostum msg file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#membuat-kostum-action-file">Membuat kostum action file</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ros_launch.html">ROS Launch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ros2.html">ROS 2</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ros_intermediate/index.html">ROS Intermediate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ros_advanced/index.html">ROS Advanced</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Robotics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../robotics_projects/index.html">Robotics Projects</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Machine Learning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../machine_learning_projects/index.html">Machine Learning Projects</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Embedded Systems</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../embedded_systems/index.html">Embedded Systems</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Elmu Robotik</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">ROS Beginner</a> &raquo;</li>
+        
+      <li>Kostum messages, srv dan action</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/ros_beginners/custom_messages.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="kostum-messages-srv-dan-action">
+<span id="custom-messages"></span><h1>Kostum messages, srv dan action<a class="headerlink" href="#kostum-messages-srv-dan-action" title="Link permanen untuk headline ini">¶</a></h1>
+<p>Kostum msg, srv dan action standar nya ditempatkan di package yang berbeda.
+Misalnya dalam projek ini, mereka akan di tempatkan di package <em>ros_custom_msgs</em>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>catkin_create_pkg ros_custom_msgs std_msgs message_generation
+</pre></div>
+</div>
+<p>Setelah itu kita bisa edit CMakeLists.txt dan package.xml seperti berikut ini:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="lineno"> 0 </span>cmake_minimum_required<span class="o">(</span>VERSION <span class="m">2</span>.8.3<span class="o">)</span>
+<span class="lineno"> 1 </span>project<span class="o">(</span>ros_custom_msgs<span class="o">)</span>
+<span class="lineno"> 2 </span>
+<span class="lineno"> 3 </span><span class="c1">## Compile as C++11, supported in ROS Kinetic and newer</span>
+<span class="lineno"> 4 </span><span class="c1"># add_compile_options(-std=c++11)</span>
+<span class="lineno"> 5 </span>
+<span class="lineno"> 6 </span>find_package<span class="o">(</span>catkin REQUIRED COMPONENTS
+<span class="lineno"> 7 </span>  std_msgs
+<span class="lineno"> 8 </span>  message_generation
+<span class="lineno"> 9 </span><span class="o">)</span>
+<span class="lineno">10 </span>
+<span class="lineno">11 </span><span class="c1">#add_action_files(DIRECTORY action</span>
+<span class="lineno">12 </span><span class="c1">#   FILES</span>
+<span class="lineno">13 </span><span class="c1">#     DetectScene.action</span>
+<span class="lineno">14 </span><span class="c1">#)</span>
+<span class="lineno">15 </span> 
+<span class="lineno">16 </span><span class="c1">#add_message_files(</span>
+<span class="lineno">17 </span><span class="c1">#   FILES</span>
+<span class="lineno">18 </span><span class="c1">#	    contoh_msg.msg</span>
+<span class="lineno">19 </span><span class="c1">#)</span>
+<span class="lineno">20 </span>
+<span class="lineno">21 </span><span class="c1"># Generate services in the &#39;srv&#39; folder</span>
+<span class="lineno">22 </span>add_service_files<span class="o">(</span>
+<span class="lineno">23 </span>  FILES
+<span class="lineno">24 </span>    CountWords.srv
+<span class="lineno">25 </span><span class="o">)</span>
+<span class="lineno">26 </span>
+<span class="lineno">27 </span><span class="c1">## Generate added messages and services with any dependencies listed here</span>
+<span class="lineno">28 </span>generate_messages<span class="o">(</span>
+<span class="lineno">29 </span>  DEPENDENCIES
+<span class="lineno">30 </span>    std_msgs  <span class="c1"># Or other packages containing msgs</span>
+<span class="lineno">31 </span><span class="o">)</span>
+<span class="lineno">32 </span>
+<span class="lineno">33 </span><span class="c1"># Define that it&#39;s a catkin package So that it can be found by pkg </span>
+<span class="lineno">34 </span><span class="c1"># that is dependent on this package</span>
+<span class="lineno">35 </span>catkin_package<span class="o">(</span>
+<span class="lineno">36 </span>  CATKIN_DEPENDS
+<span class="lineno">37 </span>    message_runtime
+<span class="lineno">38 </span><span class="o">)</span>
+</pre></div>
+</div>
+<p>File srv yang sudah dibuat (lihat subsection <a class="reference internal" href="#membuat-kostum-srv-file"><span class="std std-ref">Membuat kostum srv file</span></a>),
+kemudian di tambahkan ke <em>add_service_files</em>. Begitu pula dengan msg dan action
+files.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="lineno"> 0 </span><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+<span class="lineno"> 1 </span><span class="nt">&lt;package</span> <span class="na">format=</span><span class="s">&quot;2&quot;</span><span class="nt">&gt;</span>
+<span class="lineno"> 2 </span>  <span class="nt">&lt;name&gt;</span>ros_custom_msgs<span class="nt">&lt;/name&gt;</span>
+<span class="lineno"> 3 </span>  <span class="nt">&lt;version&gt;</span>0.0.0<span class="nt">&lt;/version&gt;</span>
+<span class="lineno"> 4 </span>  <span class="nt">&lt;description&gt;</span>The ros_custom_msgs package<span class="nt">&lt;/description&gt;</span>
+<span class="lineno"> 5 </span>
+<span class="lineno"> 6 </span>  <span class="nt">&lt;maintainer</span> <span class="na">email=</span><span class="s">&quot;mwasil@outlook.co.id&quot;</span><span class="nt">&gt;</span>Mohammad Wasil<span class="nt">&lt;/maintainer&gt;</span>
+<span class="lineno"> 7 </span>  <span class="nt">&lt;author</span> <span class="na">email=</span><span class="s">&quot;mwasil@outlook.co.id&quot;</span><span class="nt">&gt;</span>Mohammad Wasil<span class="nt">&lt;/author&gt;</span>
+<span class="lineno"> 8 </span>
+<span class="lineno"> 9 </span>  <span class="nt">&lt;license&gt;</span>GPL-3.0<span class="nt">&lt;/license&gt;</span>
+<span class="lineno">10 </span>
+<span class="lineno">11 </span>  <span class="nt">&lt;buildtool_depend&gt;</span>catkin<span class="nt">&lt;/buildtool_depend&gt;</span>
+<span class="lineno">12 </span>  <span class="nt">&lt;build_depend&gt;</span>std_msgs<span class="nt">&lt;/build_depend&gt;</span>
+<span class="lineno">13 </span>  <span class="nt">&lt;build_depend&gt;</span>message_generation<span class="nt">&lt;/build_depend&gt;</span>
+<span class="lineno">14 </span>  
+<span class="lineno">15 </span>  <span class="nt">&lt;exec_depend&gt;</span>message_runtime<span class="nt">&lt;/exec_depend&gt;</span>
+<span class="lineno">16 </span>
+<span class="lineno">17 </span><span class="nt">&lt;/package&gt;</span>
+</pre></div>
+</div>
+<p>Untuk membuat sebuah kostum srv file, kita memerlukan <em>build dependency</em> pada <em>message_generation</em>
+dan <em>runtime atau execution</em> dependency pada <em>message_generation</em> runtime.</p>
+<p>Tree structure dari kostum messages, srv dan action files:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ tree ros_custom_msgs/
+ros_custom_msgs/
+├── action
+├── CMakeLists.txt
+├── msg
+├── package.xml
+└── srv
+    └── CountWords.srv
+</pre></div>
+</div>
+<div class="section" id="membuat-kostum-srv-file">
+<span id="id1"></span><h2>Membuat kostum srv file<a class="headerlink" href="#membuat-kostum-srv-file" title="Link permanen untuk headline ini">¶</a></h2>
+<p><em>Service definition</em> atau <em>srv</em> file merupakan sebuah list dari berbagai macam
+ROS messages dan digunakan oleh service. Perbedaannya dengan message (<em>msg</em>) file adalah srv file memiliki
+request dan response yang dipisahkan dengan <strong>---</strong>. Standar penamaan srv file diawali
+dengan predikat (verb), misalnya : <em>CountWords, RecognizeObject, ComputeIK</em>.</p>
+<p>Berikut adalah contoh dari sebuah service file dengan request sebuah kalimat (<em>String</em>) dan response nya
+adalah jumlah kata (<em>Int32</em>) dalam kalimat tersebut.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>std_msgs/string words
+---
+std_msgs/Int32 num_words
+</pre></div>
+</div>
+</div>
+<div class="section" id="membuat-kostum-msg-file">
+<h2>Membuat kostum msg file<a class="headerlink" href="#membuat-kostum-msg-file" title="Link permanen untuk headline ini">¶</a></h2>
+<p>ToDo</p>
+</div>
+<div class="section" id="membuat-kostum-action-file">
+<h2>Membuat kostum action file<a class="headerlink" href="#membuat-kostum-action-file" title="Link permanen untuk headline ini">¶</a></h2>
+<p>ToDo</p>
+<p>Kemudian build package <em>ros_custom_msgs</em>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>catkin build ros_custom_msgs
+</pre></div>
+</div>
+<p>Verifikasi msg, srv atau action kita sudah ready:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ rossrv show CountWords
+<span class="o">[</span>ros_custom_msgs/CountWords<span class="o">]</span>:
+std_msgs/String words
+string data
+---
+std_msgs/Int32 num_words
+int32 data
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="ros_launch.html" class="btn btn-neutral float-right" title="ROS Launch" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="simple_service_client.html" class="btn btn-neutral float-left" title="Services (Server-Client)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Hak cipta 2021, Elmu Robotik.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

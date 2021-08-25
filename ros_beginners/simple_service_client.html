@@ -1,0 +1,528 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="id" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Services (Server-Client) &mdash; Dokumentasi Elmu Robotik 0.1.0</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="author" title="Tentang dokumen ini" href="../about.html" />
+    <link rel="index" title="Indeks" href="../genindex.html" />
+    <link rel="search" title="Pencarian" href="../search.html" />
+    <link rel="next" title="Kostum messages, srv dan action" href="custom_messages.html" />
+    <link rel="prev" title="Topics (Publisher-Subscriber)" href="simple_publisher_subscriber.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Elmu Robotik
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">Selayang Pandang</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../video_tutorials.html">Video Tutorials</a></li>
+</ul>
+<p class="caption"><span class="caption-text">ROS Tutorials</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="about_ros.html">Robot Operating System (ROS)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">ROS Beginner</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ros_package.html">Membuat ROS Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simple_publisher_subscriber.html">Topics (Publisher-Subscriber)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Services (Server-Client)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#service-definition-file-srv"><strong>Service definition file (srv)</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#server-client-python">Server-Client Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#server-client-c">Server-Client C++</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="custom_messages.html">Kostum messages, srv dan action</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ros_launch.html">ROS Launch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ros2.html">ROS 2</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ros_intermediate/index.html">ROS Intermediate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ros_advanced/index.html">ROS Advanced</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Robotics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../robotics_projects/index.html">Robotics Projects</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Machine Learning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../machine_learning_projects/index.html">Machine Learning Projects</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Embedded Systems</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../embedded_systems/index.html">Embedded Systems</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Elmu Robotik</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">ROS Beginner</a> &raquo;</li>
+        
+      <li>Services (Server-Client)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/ros_beginners/simple_service_client.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="services-server-client">
+<span id="simple-service-client"></span><h1>Services (Server-Client)<a class="headerlink" href="#services-server-client" title="Link permanen untuk headline ini">¶</a></h1>
+<p>Service merupakan cara lain untuk passsing data antar node dalam ROS. Service
+memungkinkan salah satu node untuk memanggil sebuah fungsi dari node yang lain.
+Layanan service itu sendiri di atur oleh server node, yang merupakan tempat dimana
+callback di panggil. Sedangkan request untuk layanan service di panggil
+oleh client node.</p>
+<p>Berbeda dengan topics, service adalah layanan <em>blocking call</em>,
+dimana pemrosesan di node tersebut akan terhenti sampai servernya menyelesaikan
+request dari client. Jadi, services seharusnya tidak digunakan untuk
+layanan yang memerlukan komputasi yang lama. Salah satu penggunanaan service
+misalnya untuk melakukan komputasi Inverse Kinematic (IK), inference (object classsification).</p>
+<div class="admonition hint">
+<p class="admonition-title">Petunjuk</p>
+<p>ROS command line tools yang bisa digunakan</p>
+<ul class="simple">
+<li><p>rossrv: untuk melihat informasi yang berhubungan dengan srv file definition.</p></li>
+<li><p>rosservice: untuk melihat dan berinteraksi dengan service tersedia.</p></li>
+</ul>
+</div>
+<div class="section" id="service-definition-file-srv">
+<h2><strong>Service definition file (srv)</strong><a class="headerlink" href="#service-definition-file-srv" title="Link permanen untuk headline ini">¶</a></h2>
+<p>srv file memiliki kesamaan struktur seperti msg file. Namun, srv memiliki
+request dan response. Sebagai contoh, misalnya kita akan membuat service untuk
+menghitung jumlah kata pada kalimat yang diberikan, maka langkah pertama kita
+perlu membuat service file <em>CountWords.srv</em> dimana input nya adalah kalimat,
+dan output nya adalah jumlah kata dalam kalimat tersebut. Request dan response
+dalam service file di pisahkan dengan <strong>---</strong>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>std_msgs/string words
+---
+std_msgs/Int32 counts
+</pre></div>
+</div>
+<p>Standar penamaan service file selalu di mulai dengan predikat (verb), misalnya
+<em>CountWords, RecognizeImage, ComputeIK</em>.</p>
+<p>Request juga bisa lebih dari satu message, begitu pula responnya. Misalnya
+kita mau menambahkan opsi (<em>count_articles</em>) apakah kita mau menghilangkan artikel dalam kalimat
+tersebut. Sementara di responnya, kita juga bisa menambahkan jumlah artikelnya.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>std_msgs/string words
+std_msgs/Bool count_articles
+---
+std_msgs/Int32 num_words
+std_msgs/Int32 num_articles
+</pre></div>
+</div>
+<p>Selanjutnya kita bisa menambahkan <em>CountWords.srv</em> ke CMakeList untuk di compile.
+Penjelasan lebih lanjut mengenai kompilasinya, di jelaskan
+disini <a class="reference internal" href="custom_messages.html#custom-messages"><span class="std std-ref">Kostum messages, srv dan action</span></a></p>
+</div>
+<div class="section" id="server-client-python">
+<h2>Server-Client Python<a class="headerlink" href="#server-client-python" title="Link permanen untuk headline ini">¶</a></h2>
+<p>Pertama kita perlu membuat ROS package baru dengan nama <em>rospy_simple_service_server</em>.
+Jika belum paham tentang paham tentang packages, silahkan buka <a class="reference internal" href="ros_package.html#ros-package"><span class="std std-ref">Membuat ROS Package</span></a>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>catkin_create_package rospy_simple_service_client rospy ros_custom_msgs
+</pre></div>
+</div>
+<p>Server (<em>simple_server.py</em>) dan client node (<em>simple_client.py</em>) akan tempatkan di package ini.</p>
+<ul>
+<li><p>Python server node</p>
+<p>Sama halnya dengan topic, server di dalam service juga menggunakan mekanisme
+<em>callback</em>. Server menyediakan callback dan akan di panggil ketika request
+diterima. Berikut adalah contoh service untuk menghitung jumlah kata menggunakan
+python dan cpp.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="lineno"> 0 </span><span class="ch">#!/usr/bin/env python</span>
+<span class="lineno"> 1 </span>
+<span class="lineno"> 2 </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="lineno"> 3 </span><span class="sd">This script is a simple python node which advertizes ros service</span>
+<span class="lineno"> 4 </span><span class="sd">server rospy_word_count</span>
+<span class="lineno"> 5 </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="lineno"> 6 </span><span class="c1">#-*- encoding: utf-8 -*-</span>
+<span class="lineno"> 7 </span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;mohammad wasil&#39;</span>
+<span class="lineno"> 8 </span>
+<span class="lineno"> 9 </span><span class="kn">import</span> <span class="nn">rospy</span>
+<span class="lineno">10 </span><span class="kn">from</span> <span class="nn">ros_custom_msgs.srv</span> <span class="kn">import</span> <span class="n">CountWords</span><span class="p">,</span> <span class="n">CountWordsResponse</span>
+<span class="lineno">11 </span>
+<span class="lineno">12 </span><span class="k">def</span> <span class="nf">server_callback</span><span class="p">(</span><span class="n">req</span><span class="p">):</span>
+<span class="lineno">13 </span>  <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s2">&quot;Received request: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">req</span><span class="o">.</span><span class="n">words</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+<span class="lineno">14 </span>  
+<span class="lineno">15 </span>  <span class="n">words</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">words</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="lineno">16 </span>  <span class="n">resp</span> <span class="o">=</span> <span class="n">CountWordsResponse</span><span class="p">()</span>
+<span class="lineno">17 </span>
+<span class="lineno">18 </span>  <span class="k">if</span> <span class="n">req</span><span class="o">.</span><span class="n">count_articles</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
+<span class="lineno">19 </span>    <span class="n">english_articles</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;an&#39;</span><span class="p">,</span> <span class="s1">&#39;the&#39;</span><span class="p">]</span> 
+<span class="lineno">20 </span>    <span class="n">resp</span><span class="o">.</span><span class="n">num_articles</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="nb">len</span><span class="p">([</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span> <span class="k">if</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">english_articles</span><span class="p">])</span>
+<span class="lineno">21 </span>
+<span class="lineno">22 </span>  <span class="n">resp</span><span class="o">.</span><span class="n">num_words</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span> <span class="o">-</span> <span class="n">resp</span><span class="o">.</span><span class="n">num_articles</span><span class="o">.</span><span class="n">data</span>
+<span class="lineno">23 </span>
+<span class="lineno">24 </span>  <span class="k">return</span> <span class="n">resp</span>
+<span class="lineno">25 </span>
+<span class="lineno">26 </span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="lineno">27 </span>  <span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s2">&quot;rospy_simple_server_node&quot;</span><span class="p">,</span> <span class="n">anonymous</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="lineno">28 </span>  <span class="n">rospy</span><span class="o">.</span><span class="n">Service</span><span class="p">(</span><span class="s2">&quot;rospy_word_count&quot;</span><span class="p">,</span> <span class="n">CountWords</span><span class="p">,</span> <span class="n">server_callback</span><span class="p">)</span>  
+<span class="lineno">29 </span>  <span class="n">rospy</span><span class="o">.</span><span class="n">spin</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><em>simple_server.py</em> harus executable dengan cara:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chmod +x simple_server.py
+</pre></div>
+</div>
+<p>Kemudian jalankan node:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rosrun rospy_simple_service_client simple_server.py
+</pre></div>
+</div>
+<p>Untuk memastikan service server berjalan dengan baik, kita bisa mengeceknya via
+terminal.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>emha at ThinkPad-E570 in ~$ rosservice list
+    /rosout/get_loggers
+    /rosout/set_logger_level
+    /rospy_simple_server_node/get_loggers
+    /rospy_simple_server_node/set_logger_level
+    /rospy_word_count
+</pre></div>
+</div>
+</li>
+<li><p>Python client node</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="lineno"> 0 </span><span class="ch">#!/usr/bin/env python</span>
+<span class="lineno"> 1 </span>
+<span class="lineno"> 2 </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="lineno"> 3 </span><span class="sd">This script is a simple python node which calls ros service</span>
+<span class="lineno"> 4 </span><span class="sd">rospy_word_count and send request to the server.</span>
+<span class="lineno"> 5 </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="lineno"> 6 </span><span class="c1">#-*- encoding: utf-8 -*-</span>
+<span class="lineno"> 7 </span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;mohammad wasil&#39;</span>
+<span class="lineno"> 8 </span>
+<span class="lineno"> 9 </span><span class="kn">import</span> <span class="nn">rospy</span>
+<span class="lineno">10 </span><span class="kn">from</span> <span class="nn">ros_custom_msgs.srv</span> <span class="kn">import</span> <span class="n">CountWords</span><span class="p">,</span> <span class="n">CountWordsRequest</span>
+<span class="lineno">11 </span>
+<span class="lineno">12 </span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="lineno">13 </span>
+<span class="lineno">14 </span>  <span class="c1">#you are not necessarilt inilitialize node</span>
+<span class="lineno">15 </span>  <span class="c1">#since service client does not have to be a node</span>
+<span class="lineno">16 </span>  <span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s2">&quot;rospy_simple_client_node&quot;</span><span class="p">,</span> <span class="n">anonymous</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="lineno">17 </span>  <span class="n">rate</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Rate</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="lineno">18 </span>
+<span class="lineno">19 </span>  <span class="k">while</span> <span class="ow">not</span> <span class="n">rospy</span><span class="o">.</span><span class="n">is_shutdown</span><span class="p">():</span>
+<span class="lineno">20 </span>    <span class="n">rospy</span><span class="o">.</span><span class="n">wait_for_service</span><span class="p">(</span><span class="s1">&#39;rospy_word_count&#39;</span><span class="p">)</span>
+<span class="lineno">21 </span>    <span class="k">try</span><span class="p">:</span>
+<span class="lineno">22 </span>      <span class="n">word_count</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceProxy</span><span class="p">(</span><span class="s1">&#39;rospy_word_count&#39;</span><span class="p">,</span> <span class="n">CountWords</span><span class="p">)</span>
+<span class="lineno">23 </span>
+<span class="lineno">24 </span>      <span class="n">req</span> <span class="o">=</span> <span class="n">CountWordsRequest</span><span class="p">()</span>
+<span class="lineno">25 </span>      <span class="n">req</span><span class="o">.</span><span class="n">words</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span>  <span class="s2">&quot;a test from the client node for a simple server client&quot;</span>
+<span class="lineno">26 </span>      <span class="n">req</span><span class="o">.</span><span class="n">count_articles</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="lineno">27 </span>
+<span class="lineno">28 </span>      <span class="n">resp</span> <span class="o">=</span> <span class="n">word_count</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
+<span class="lineno">29 </span>
+<span class="lineno">30 </span>      <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s2">&quot;Result -&gt; Num of words: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">resp</span><span class="o">.</span><span class="n">num_words</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+<span class="lineno">31 </span>      <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s2">&quot;Result -&gt; Num of articles: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">resp</span><span class="o">.</span><span class="n">num_articles</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+<span class="lineno">32 </span>
+<span class="lineno">33 </span>    <span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceException</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
+<span class="lineno">34 </span>      <span class="k">print</span> <span class="s2">&quot;Service call failed: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">e</span>
+<span class="lineno">35 </span>
+<span class="lineno">36 </span>    <span class="n">rate</span><span class="o">.</span><span class="n">sleep</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="server-client-c">
+<h2>Server-Client C++<a class="headerlink" href="#server-client-c" title="Link permanen untuk headline ini">¶</a></h2>
+<ul>
+<li><p>C++ Server node</p>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="lineno"> 0 </span><span class="cp">#include</span> <span class="cpf">&lt;ros/ros.h&gt;</span><span class="cp"></span>
+<span class="lineno"> 1 </span><span class="cp">#include</span> <span class="cpf">&lt;ros_custom_msgs/CountWords.h&gt;</span><span class="cp"></span>
+<span class="lineno"> 2 </span><span class="cp">#include</span> <span class="cpf">&lt;boost/algorithm/string.hpp&gt;</span><span class="cp"></span>
+<span class="lineno"> 3 </span>
+<span class="lineno"> 4 </span><span class="kt">bool</span> <span class="nf">serverCallback</span><span class="p">(</span><span class="n">ros_custom_msgs</span><span class="o">::</span><span class="n">CountWordsRequest</span> <span class="o">&amp;</span><span class="n">req</span><span class="p">,</span>
+<span class="lineno"> 5 </span>                    <span class="n">ros_custom_msgs</span><span class="o">::</span><span class="n">CountWordsResponse</span> <span class="o">&amp;</span><span class="n">resp</span><span class="p">)</span>
+<span class="lineno"> 6 </span><span class="p">{</span>
+<span class="lineno"> 7 </span>  <span class="n">ROS_INFO_STREAM</span><span class="p">(</span><span class="s">&quot;Request received: &quot;</span><span class="o">&lt;&lt;</span><span class="n">req</span><span class="p">.</span><span class="n">words</span><span class="p">.</span><span class="n">data</span><span class="p">);</span>
+<span class="lineno"> 8 </span>  
+<span class="lineno"> 9 </span>  <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">words</span><span class="p">;</span>
+<span class="lineno">10 </span>  <span class="n">boost</span><span class="o">::</span><span class="n">split</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="n">req</span><span class="p">.</span><span class="n">words</span><span class="p">.</span><span class="n">data</span><span class="p">,</span> <span class="n">boost</span><span class="o">::</span><span class="n">is_any_of</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\t</span><span class="s"> &quot;</span><span class="p">));</span>
+<span class="lineno">11 </span>  
+<span class="lineno">12 </span>  <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">english_articles</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;an&quot;</span><span class="p">,</span> <span class="s">&quot;the&quot;</span><span class="p">};</span>
+<span class="lineno">13 </span>  <span class="kt">int</span> <span class="n">num_of_articles</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="lineno">14 </span>  <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="k">const</span><span class="o">&amp;</span> <span class="nl">word</span><span class="p">:</span> <span class="n">words</span><span class="p">)</span>
+<span class="lineno">15 </span>  <span class="p">{</span>
+<span class="lineno">16 </span>    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">lower_word</span> <span class="o">=</span> <span class="n">boost</span><span class="o">::</span><span class="n">algorithm</span><span class="o">::</span><span class="n">to_lower_copy</span><span class="p">(</span><span class="n">word</span><span class="p">);</span>
+<span class="lineno">17 </span>    <span class="k">if</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">find</span><span class="p">(</span><span class="n">english_articles</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">english_articles</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> 
+<span class="lineno">18 </span>        <span class="n">lower_word</span> <span class="p">)</span> <span class="o">!=</span> <span class="n">english_articles</span><span class="p">.</span><span class="n">end</span><span class="p">())</span>
+<span class="lineno">19 </span>    <span class="p">{</span>
+<span class="lineno">20 </span>      <span class="n">num_of_articles</span> <span class="o">++</span><span class="p">;</span>
+<span class="lineno">21 </span>    <span class="p">}</span>
+<span class="lineno">22 </span>  <span class="p">}</span>
+<span class="lineno">23 </span>  
+<span class="lineno">24 </span>  <span class="n">resp</span><span class="p">.</span><span class="n">num_articles</span><span class="p">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">num_of_articles</span><span class="p">;</span>
+<span class="lineno">25 </span>  <span class="n">resp</span><span class="p">.</span><span class="n">num_words</span><span class="p">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">words</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="n">num_of_articles</span><span class="p">;</span>
+<span class="lineno">26 </span>  
+<span class="lineno">27 </span>  <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+<span class="lineno">28 </span><span class="p">}</span>
+<span class="lineno">29 </span>
+<span class="lineno">30 </span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span>
+<span class="lineno">31 </span><span class="p">{</span>
+<span class="lineno">32 </span>  <span class="n">ros</span><span class="o">::</span><span class="n">init</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">,</span> <span class="s">&quot;roscpp_simple_server_node&quot;</span><span class="p">);</span>
+<span class="lineno">33 </span>  <span class="n">ros</span><span class="o">::</span><span class="n">NodeHandle</span> <span class="n">nh</span><span class="p">;</span>
+<span class="lineno">34 </span>  <span class="n">ros</span><span class="o">::</span><span class="n">ServiceServer</span> <span class="n">service</span> <span class="o">=</span> <span class="n">nh</span><span class="p">.</span><span class="n">advertiseService</span><span class="p">(</span><span class="s">&quot;roscpp_word_count&quot;</span><span class="p">,</span> <span class="n">serverCallback</span><span class="p">);</span>
+<span class="lineno">35 </span>  <span class="n">ros</span><span class="o">::</span><span class="n">spin</span><span class="p">();</span>
+<span class="lineno">36 </span>  
+<span class="lineno">37 </span>  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="lineno">38 </span><span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>C++ Client node</p>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="lineno"> 0 </span><span class="cp">#include</span> <span class="cpf">&lt;ros/ros.h&gt;</span><span class="cp"></span>
+<span class="lineno"> 1 </span><span class="cp">#include</span> <span class="cpf">&lt;ros_custom_msgs/CountWords.h&gt;</span><span class="cp"></span>
+<span class="lineno"> 2 </span>
+<span class="lineno"> 3 </span><span class="kt">int</span> <span class="nf">main</span> <span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span>
+<span class="lineno"> 4 </span><span class="p">{</span>
+<span class="lineno"> 5 </span>  <span class="n">ros</span><span class="o">::</span><span class="n">init</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">,</span> <span class="s">&quot;roscpp_simple_client_node&quot;</span><span class="p">);</span>
+<span class="lineno"> 6 </span>  <span class="n">ros</span><span class="o">::</span><span class="n">NodeHandle</span> <span class="n">nh</span><span class="p">;</span>
+<span class="lineno"> 7 </span>  <span class="n">ros</span><span class="o">::</span><span class="n">ServiceClient</span> <span class="n">service_client</span> <span class="o">=</span> <span class="n">nh</span><span class="p">.</span><span class="n">serviceClient</span><span class="o">&lt;</span><span class="n">ros_custom_msgs</span><span class="o">::</span><span class="n">CountWords</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;roscpp_word_count&quot;</span><span class="p">);</span>
+<span class="lineno"> 8 </span>  <span class="n">ros</span><span class="o">::</span><span class="n">Rate</span> <span class="n">loop_rate</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="lineno"> 9 </span>  <span class="k">while</span><span class="p">(</span><span class="n">ros</span><span class="o">::</span><span class="n">ok</span><span class="p">())</span>
+<span class="lineno">10 </span>  <span class="p">{</span>
+<span class="lineno">11 </span>    <span class="n">ros_custom_msgs</span><span class="o">::</span><span class="n">CountWords</span> <span class="n">srv</span><span class="p">;</span>
+<span class="lineno">12 </span>    <span class="n">srv</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">words</span><span class="p">.</span><span class="n">data</span> <span class="o">=</span> <span class="s">&quot;A sample request from a client for a simple service client test&quot;</span><span class="p">;</span>
+<span class="lineno">13 </span>    <span class="n">srv</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">count_articles</span><span class="p">.</span><span class="n">data</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+<span class="lineno">14 </span>
+<span class="lineno">15 </span>    <span class="k">if</span> <span class="p">(</span><span class="n">service_client</span><span class="p">.</span><span class="n">call</span><span class="p">(</span><span class="n">srv</span><span class="p">))</span>
+<span class="lineno">16 </span>    <span class="p">{</span>
+<span class="lineno">17 </span>      <span class="n">ROS_INFO_STREAM</span><span class="p">(</span><span class="s">&quot;Result -&gt; Num of words: &quot;</span><span class="o">&lt;&lt;</span><span class="n">srv</span><span class="p">.</span><span class="n">response</span><span class="p">.</span><span class="n">num_words</span><span class="p">.</span><span class="n">data</span><span class="p">);</span>
+<span class="lineno">18 </span>      <span class="n">ROS_INFO_STREAM</span><span class="p">(</span><span class="s">&quot;Result -&gt; Num of articles: &quot;</span><span class="o">&lt;&lt;</span><span class="n">srv</span><span class="p">.</span><span class="n">response</span><span class="p">.</span><span class="n">num_articles</span><span class="p">.</span><span class="n">data</span><span class="p">);</span>
+<span class="lineno">19 </span>    <span class="p">}</span>
+<span class="lineno">20 </span>    <span class="k">else</span>
+<span class="lineno">21 </span>    <span class="p">{</span>
+<span class="lineno">22 </span>      <span class="n">ROS_ERROR</span><span class="p">(</span><span class="s">&quot;Failed to call the service server&quot;</span><span class="p">);</span>
+<span class="lineno">23 </span>    <span class="p">}</span>
+<span class="lineno">24 </span>
+<span class="lineno">25 </span>    <span class="n">loop_rate</span><span class="p">.</span><span class="n">sleep</span><span class="p">();</span>
+<span class="lineno">26 </span>  <span class="p">}</span>
+<span class="lineno">27 </span>  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="lineno">28 </span><span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>Contoh CMakeList.txt</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="lineno"> 0 </span>cmake_minimum_required<span class="o">(</span>VERSION <span class="m">2</span>.8.3<span class="o">)</span>
+<span class="lineno"> 1 </span>project<span class="o">(</span>roscpp_simple_service_client<span class="o">)</span>
+<span class="lineno"> 2 </span>
+<span class="lineno"> 3 </span><span class="c1">## Compile as C++11, supported in ROS Kinetic and newer</span>
+<span class="lineno"> 4 </span>add_compile_options<span class="o">(</span>-std<span class="o">=</span>c++11<span class="o">)</span>
+<span class="lineno"> 5 </span>
+<span class="lineno"> 6 </span>find_package<span class="o">(</span>catkin REQUIRED COMPONENTS
+<span class="lineno"> 7 </span>  ros_custom_msgs
+<span class="lineno"> 8 </span>  roscpp
+<span class="lineno"> 9 </span><span class="o">)</span>
+<span class="lineno">10 </span>
+<span class="lineno">11 </span>catkin_package<span class="o">(</span>
+<span class="lineno">12 </span><span class="o">)</span>
+<span class="lineno">13 </span>
+<span class="lineno">14 </span>include_directories<span class="o">(</span>
+<span class="lineno">15 </span><span class="c1"># include</span>
+<span class="lineno">16 </span>  <span class="si">${</span><span class="nv">catkin_INCLUDE_DIRS</span><span class="si">}</span>
+<span class="lineno">17 </span><span class="o">)</span>
+<span class="lineno">18 </span>
+<span class="lineno">19 </span><span class="c1">#Executable</span>
+<span class="lineno">20 </span>add_executable<span class="o">(</span>simple_server
+<span class="lineno">21 </span>  ros/src/simple_server.cpp
+<span class="lineno">22 </span><span class="o">)</span>
+<span class="lineno">23 </span>add_dependencies<span class="o">(</span>simple_server 
+<span class="lineno">24 </span>  <span class="si">${</span><span class="nv">catkin_EXPORTED_TARGETS</span><span class="si">}</span>
+<span class="lineno">25 </span><span class="o">)</span>
+<span class="lineno">26 </span>target_link_libraries<span class="o">(</span>simple_server
+<span class="lineno">27 </span>  <span class="si">${</span><span class="nv">catkin_LIBRARIES</span><span class="si">}</span>
+<span class="lineno">28 </span><span class="o">)</span>
+<span class="lineno">29 </span>
+<span class="lineno">30 </span>add_executable<span class="o">(</span>simple_client
+<span class="lineno">31 </span>  ros/src/simple_client.cpp
+<span class="lineno">32 </span><span class="o">)</span>
+<span class="lineno">33 </span>add_dependencies<span class="o">(</span>simple_client
+<span class="lineno">34 </span>  <span class="si">${</span><span class="nv">catkin_EXPORTED_TARGETS</span><span class="si">}</span>
+<span class="lineno">35 </span><span class="o">)</span>
+<span class="lineno">36 </span>target_link_libraries<span class="o">(</span>simple_client
+<span class="lineno">37 </span>  <span class="si">${</span><span class="nv">catkin_LIBRARIES</span><span class="si">}</span>
+<span class="lineno">38 </span><span class="o">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="custom_messages.html" class="btn btn-neutral float-right" title="Kostum messages, srv dan action" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="simple_publisher_subscriber.html" class="btn btn-neutral float-left" title="Topics (Publisher-Subscriber)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Hak cipta 2021, Elmu Robotik.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

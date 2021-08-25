@@ -1,0 +1,381 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="id" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Topics (Publisher-Subscriber) &mdash; Dokumentasi Elmu Robotik 0.1.0</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="author" title="Tentang dokumen ini" href="../about.html" />
+    <link rel="index" title="Indeks" href="../genindex.html" />
+    <link rel="search" title="Pencarian" href="../search.html" />
+    <link rel="next" title="Services (Server-Client)" href="simple_service_client.html" />
+    <link rel="prev" title="Membuat ROS Package" href="ros_package.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Elmu Robotik
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">Selayang Pandang</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../video_tutorials.html">Video Tutorials</a></li>
+</ul>
+<p class="caption"><span class="caption-text">ROS Tutorials</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="about_ros.html">Robot Operating System (ROS)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">ROS Beginner</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ros_package.html">Membuat ROS Package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Topics (Publisher-Subscriber)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#publisher-subscriber-python">Publisher-Subscriber Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#publisher-subscriber-c">Publisher-Subscriber C++</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="simple_service_client.html">Services (Server-Client)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="custom_messages.html">Kostum messages, srv dan action</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ros_launch.html">ROS Launch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ros2.html">ROS 2</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ros_intermediate/index.html">ROS Intermediate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ros_advanced/index.html">ROS Advanced</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Robotics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../robotics_projects/index.html">Robotics Projects</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Machine Learning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../machine_learning_projects/index.html">Machine Learning Projects</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Embedded Systems</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../embedded_systems/index.html">Embedded Systems</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Elmu Robotik</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">ROS Beginner</a> &raquo;</li>
+        
+      <li>Topics (Publisher-Subscriber)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/ros_beginners/simple_publisher_subscriber.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="topics-publisher-subscriber">
+<span id="simple-publisher-subscriber"></span><h1>Topics (Publisher-Subscriber)<a class="headerlink" href="#topics-publisher-subscriber" title="Link permanen untuk headline ini">¶</a></h1>
+<p><cite>Topic</cite> dapat digunakan oleh node untuk berkomunikasi satu sama lain.
+Setiap topik di berisi informasi yang bersesuaian dengan tipe message yang digunakan.
+Misalnya sebua <cite>message_a</cite> yang berisi satu variable integer dan satu variable string,
+di publish oleh sebuah <cite>topic_a</cite>, kemudian setiap node yang men-subscribe ke <cite>topic_a</cite>
+tersebut harus juga memiliki tipe <cite>message_a</cite>. Satu node bisa mem-publish lebih
+dari satu topic dan bisa men-subscribe lebih dari satu topic.</p>
+<p>Salah satu kelebihan <cite>Topic</cite> dibandingkan <cite>Service</cite> adalah bawha <cite>Topic</cite> merupakan
+<cite>non-blocking communication type</cite>, yang berarti program bisa terus dieksekusi.</p>
+<p>Contoh <cite>nodes</cite> yang berkomunikasi via topics:</p>
+<div class="section" id="publisher-subscriber-python">
+<h2>Publisher-Subscriber Python<a class="headerlink" href="#publisher-subscriber-python" title="Link permanen untuk headline ini">¶</a></h2>
+<blockquote>
+<div><p>Node <a class="reference external" href="https://github.com/elmurobotik/ros-tutorials/blob/master/ros-beginners/rospy_simple_publisher_subscriber/ros/script/simple_publisher.py">simple_publisher.py</a>
+akan <cite>publish</cite> <cite>String</cite> message ke topic <cite>/rospy_pub_sub/event_out</cite></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="lineno"> 0 </span><span class="ch">#!/usr/bin/env python</span>
+<span class="lineno"> 1 </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="lineno"> 2 </span><span class="sd">This script is a simple python node which publishes</span>
+<span class="lineno"> 3 </span><span class="sd">a std_msgs string.</span>
+<span class="lineno"> 4 </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="lineno"> 5 </span><span class="c1">#-*- encoding: utf-8 -*-</span>
+<span class="lineno"> 6 </span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;mohammad wasil&#39;</span>
+<span class="lineno"> 7 </span>
+<span class="lineno"> 8 </span><span class="kn">import</span> <span class="nn">rospy</span>
+<span class="lineno"> 9 </span><span class="kn">from</span> <span class="nn">std_msgs.msg</span> <span class="kn">import</span> <span class="n">String</span>
+<span class="lineno">10 </span>
+<span class="lineno">11 </span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="lineno">12 </span>    <span class="sd">&#39;&#39;&#39;</span>
+<span class="lineno">13 </span><span class="sd">    Initilize node and string type publish topic at the loop rate of 10Hz.</span>
+<span class="lineno">14 </span><span class="sd">    &#39;&#39;&#39;</span>
+<span class="lineno">15 </span>    
+<span class="lineno">16 </span>    <span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s2">&quot;rospy_simple_publisher_node&quot;</span><span class="p">,</span> <span class="n">anonymous</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="lineno">17 </span>    <span class="n">rate</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Rate</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="lineno">18 </span>    <span class="n">pub</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Publisher</span><span class="p">(</span><span class="s2">&quot;rospy_pub_sub/event_out&quot;</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="n">queue_size</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="lineno">19 </span>    
+<span class="lineno">20 </span>    <span class="k">while</span> <span class="ow">not</span> <span class="n">rospy</span><span class="o">.</span><span class="n">is_shutdown</span><span class="p">():</span>
+<span class="lineno">21 </span>        <span class="n">string_msg</span> <span class="o">=</span> <span class="s2">&quot;Kiriman data dari rospy_simple_publisher_node&quot;</span>
+<span class="lineno">22 </span>        <span class="n">pub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">string_msg</span><span class="p">)</span>
+<span class="lineno">23 </span>        <span class="n">rate</span><span class="o">.</span><span class="n">sleep</span><span class="p">()</span>
+<span class="lineno">24 </span>
+</pre></div>
+</div>
+<p>Dan node <a class="reference external" href="https://github.com/elmurobotik/ros-tutorials/blob/master/ros-beginners/rospy_simple_publisher_subscriber/ros/script/simple_subscriber.py">simple_subscriber.py</a>
+akan <cite>subscribe</cite> <cite>String</cite> message ke topic <cite>/rospy_pub_sub/event_out</cite></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="lineno"> 0 </span><span class="ch">#!/usr/bin/env python</span>
+<span class="lineno"> 1 </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="lineno"> 2 </span><span class="sd">This script is a simple python node which subscribes to</span>
+<span class="lineno"> 3 </span><span class="sd">rospy_pub_sub/event_out topic</span>
+<span class="lineno"> 4 </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="lineno"> 5 </span><span class="c1">#-*- encoding: utf-8 -*-</span>
+<span class="lineno"> 6 </span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;mohammad wasil&#39;</span>
+<span class="lineno"> 7 </span>
+<span class="lineno"> 8 </span><span class="kn">import</span> <span class="nn">rospy</span>
+<span class="lineno"> 9 </span><span class="kn">from</span> <span class="nn">std_msgs.msg</span> <span class="kn">import</span> <span class="n">String</span>
+<span class="lineno">10 </span>
+<span class="lineno">11 </span><span class="k">def</span> <span class="nf">pub_sub_callback</span><span class="p">(</span><span class="n">msg</span><span class="p">):</span>
+<span class="lineno">12 </span>    <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s2">&quot;Data yang diterima: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">msg</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+<span class="lineno">13 </span>
+<span class="lineno">14 </span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="lineno">15 </span>    <span class="sd">&#39;&#39;&#39;</span>
+<span class="lineno">16 </span><span class="sd">    Initilize node and string type publish topic at the loop rate of 10Hz.</span>
+<span class="lineno">17 </span><span class="sd">    &#39;&#39;&#39;</span>
+<span class="lineno">18 </span>    
+<span class="lineno">19 </span>    <span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s2">&quot;rospy_simple_subscriber_node&quot;</span><span class="p">,</span> <span class="n">anonymous</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="lineno">20 </span>    <span class="n">rate</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Rate</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="lineno">21 </span>
+<span class="lineno">22 </span>    <span class="k">while</span> <span class="ow">not</span> <span class="n">rospy</span><span class="o">.</span><span class="n">is_shutdown</span><span class="p">():</span>
+<span class="lineno">23 </span>
+<span class="lineno">24 </span>        <span class="n">rospy</span><span class="o">.</span><span class="n">Subscriber</span><span class="p">(</span><span class="s2">&quot;rospy_pub_sub/event_out&quot;</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="n">pub_sub_callback</span><span class="p">)</span>
+<span class="lineno">25 </span>        
+<span class="lineno">26 </span>        <span class="n">rate</span><span class="o">.</span><span class="n">sleep</span><span class="p">()</span>
+<span class="lineno">27 </span>
+</pre></div>
+</div>
+<p>Dimana:</p>
+<ul class="simple">
+<li><p><cite>pub_sub_callback</cite>: adalah <cite>callback</cite> dari subscribernya.</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="publisher-subscriber-c">
+<h2>Publisher-Subscriber C++<a class="headerlink" href="#publisher-subscriber-c" title="Link permanen untuk headline ini">¶</a></h2>
+<blockquote>
+<div><p>Sama halnya dengan Python code diatas, <a class="reference external" href="https://github.com/elmurobotik/ros-tutorials/blob/master/ros-beginners/roscpp_simple_publisher_subscriber/ros/src/simple_publisher.cpp">simple_publisher.cpp</a>
+akan <cite>publish</cite> <cite>String</cite> message ke topic <cite>/rospy_pub_sub/event_out</cite></p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="lineno"> 0 </span><span class="cp">#include</span> <span class="cpf">&lt;ros/ros.h&gt;</span><span class="cp"></span>
+<span class="lineno"> 1 </span><span class="cp">#include</span> <span class="cpf">&lt;std_msgs/String.h&gt;</span><span class="cp"></span>
+<span class="lineno"> 2 </span>
+<span class="lineno"> 3 </span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span>
+<span class="lineno"> 4 </span><span class="p">{</span>
+<span class="lineno"> 5 </span>  <span class="n">ros</span><span class="o">::</span><span class="n">init</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">,</span> <span class="s">&quot;roscpp_simple_publisher_node&quot;</span><span class="p">);</span>
+<span class="lineno"> 6 </span>  <span class="n">ros</span><span class="o">::</span><span class="n">NodeHandle</span> <span class="n">nh</span><span class="p">;</span>
+<span class="lineno"> 7 </span>  <span class="n">ros</span><span class="o">::</span><span class="n">Publisher</span> <span class="n">publisher</span> <span class="o">=</span> <span class="n">nh</span><span class="p">.</span><span class="n">advertise</span><span class="o">&lt;</span><span class="n">std_msgs</span><span class="o">::</span><span class="n">String</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;roscpp_pub_sub/event_out&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="lineno"> 8 </span>  <span class="n">ros</span><span class="o">::</span><span class="n">Rate</span> <span class="n">loop_rate</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="lineno"> 9 </span>  <span class="k">while</span><span class="p">(</span><span class="n">ros</span><span class="o">::</span><span class="n">ok</span><span class="p">())</span>
+<span class="lineno">10 </span>  <span class="p">{</span>
+<span class="lineno">11 </span>    <span class="n">std_msgs</span><span class="o">::</span><span class="n">String</span> <span class="n">msg</span><span class="p">;</span>
+<span class="lineno">12 </span>    <span class="n">msg</span><span class="p">.</span><span class="n">data</span> <span class="o">=</span> <span class="s">&quot;Kiriman data dari node roscpp_simple_publisher_node&quot;</span><span class="p">;</span>
+<span class="lineno">13 </span>    <span class="n">publisher</span><span class="p">.</span><span class="n">publish</span><span class="p">(</span><span class="n">msg</span><span class="p">);</span>
+<span class="lineno">14 </span>    <span class="n">ros</span><span class="o">::</span><span class="n">spinOnce</span><span class="p">();</span>
+<span class="lineno">15 </span>    <span class="n">loop_rate</span><span class="p">.</span><span class="n">sleep</span><span class="p">();</span>
+<span class="lineno">16 </span>    
+<span class="lineno">17 </span>  <span class="p">}</span>
+<span class="lineno">18 </span>
+<span class="lineno">19 </span>  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="lineno">20 </span>
+<span class="lineno">21 </span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Sedangkan node <a class="reference external" href="https://github.com/elmurobotik/ros-tutorials/blob/master/ros-beginners/roscpp_simple_publisher_subscriber/ros/src/simple_subscriber.cpp">simple_subscriber.cpp</a>
+akan <cite>subscribe</cite> <cite>String</cite> message ke topic <cite>/rospy_pub_sub/event_out</cite></p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="lineno"> 0 </span><span class="cp">#include</span> <span class="cpf">&lt;ros/ros.h&gt;</span><span class="cp"></span>
+<span class="lineno"> 1 </span><span class="cp">#include</span> <span class="cpf">&lt;std_msgs/String.h&gt;</span><span class="cp"></span>
+<span class="lineno"> 2 </span>
+<span class="lineno"> 3 </span><span class="kt">void</span> <span class="nf">pubSubCallback</span><span class="p">(</span><span class="k">const</span> <span class="n">std_msgs</span><span class="o">::</span><span class="n">String</span><span class="o">::</span><span class="n">ConstPtr</span><span class="o">&amp;</span> <span class="n">msg</span><span class="p">)</span>
+<span class="lineno"> 4 </span><span class="p">{</span>
+<span class="lineno"> 5 </span>  <span class="n">ROS_INFO</span><span class="p">(</span><span class="s">&quot;Data diterima: %s&quot;</span><span class="p">,</span> <span class="n">msg</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">.</span><span class="n">c_str</span><span class="p">());</span>
+<span class="lineno"> 6 </span><span class="p">}</span>
+<span class="lineno"> 7 </span>
+<span class="lineno"> 8 </span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span>
+<span class="lineno"> 9 </span><span class="p">{</span>
+<span class="lineno">10 </span>  <span class="n">ros</span><span class="o">::</span><span class="n">init</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">,</span> <span class="s">&quot;roscpp_simple_subscriber_node&quot;</span><span class="p">);</span>
+<span class="lineno">11 </span>  <span class="n">ros</span><span class="o">::</span><span class="n">NodeHandle</span> <span class="n">nh</span><span class="p">;</span>
+<span class="lineno">12 </span>  
+<span class="lineno">13 </span>  <span class="n">ros</span><span class="o">::</span><span class="n">Subscriber</span> <span class="n">subscriber</span> <span class="o">=</span> <span class="n">nh</span><span class="p">.</span><span class="n">subscribe</span><span class="p">(</span><span class="s">&quot;roscpp_pub_sub/event_out&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">pubSubCallback</span><span class="p">);</span>
+<span class="lineno">14 </span>  
+<span class="lineno">15 </span>  <span class="n">ros</span><span class="o">::</span><span class="n">spin</span><span class="p">();</span>
+<span class="lineno">16 </span>
+<span class="lineno">17 </span>  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="lineno">18 </span>
+<span class="lineno">19 </span><span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="simple_service_client.html" class="btn btn-neutral float-right" title="Services (Server-Client)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="ros_package.html" class="btn btn-neutral float-left" title="Membuat ROS Package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Hak cipta 2021, Elmu Robotik.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
