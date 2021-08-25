@@ -3,8 +3,8 @@
 Video Tutorials
 ###############
 
-ROS Beginner
-------------
+ROS Beginner Videos
+-------------------
 
 * `[1] Introduction to ROS <https://www.youtube.com/watch?v=LkamuRwpisU>`_
 * `[2] Konsep Dasar ROS <https://www.youtube.com/watch?v=6zVelaQHT4E>`_
