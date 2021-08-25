@@ -209,10 +209,67 @@ dari satu topic dan bisa men-subscribe lebih dari satu topic.</p>
 <div class="section" id="publisher-subscriber-python">
 <h2>Publisher-Subscriber Python<a class="headerlink" href="#publisher-subscriber-python" title="Link permanen untuk headline ini">¶</a></h2>
 <blockquote>
-<div><p>Node <a class="reference external" href="https://github.com/elmurobotik/ros-tutorials/blob/master/ros-beginners/rospy_simple_publisher_subscriber/ros/script/simple_publisher.py">simple_publisher.py</a>
+<div><p>Node <a class="reference external" href="https://github.com/elmurobotik/ros-tutorials/blob/master/ros-beginners/rospy_simple_publisher_subscriber/ros/scripts/simple_publisher.py">simple_publisher.py</a>
 akan <cite>publish</cite> <cite>String</cite> message ke topic <cite>/rospy_pub_sub/event_out</cite></p>
-<p>Dan node <a class="reference external" href="https://github.com/elmurobotik/ros-tutorials/blob/master/ros-beginners/rospy_simple_publisher_subscriber/ros/script/simple_subscriber.py">simple_subscriber.py</a>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="lineno"> 0 </span><span class="ch">#!/usr/bin/env python</span>
+<span class="lineno"> 1 </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="lineno"> 2 </span><span class="sd">This script is a simple python node which publishes</span>
+<span class="lineno"> 3 </span><span class="sd">a std_msgs string.</span>
+<span class="lineno"> 4 </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="lineno"> 5 </span><span class="c1">#-*- encoding: utf-8 -*-</span>
+<span class="lineno"> 6 </span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;mohammad wasil&#39;</span>
+<span class="lineno"> 7 </span>
+<span class="lineno"> 8 </span><span class="kn">import</span> <span class="nn">rospy</span>
+<span class="lineno"> 9 </span><span class="kn">from</span> <span class="nn">std_msgs.msg</span> <span class="kn">import</span> <span class="n">String</span>
+<span class="lineno">10 </span>
+<span class="lineno">11 </span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="lineno">12 </span>    <span class="sd">&#39;&#39;&#39;</span>
+<span class="lineno">13 </span><span class="sd">    Initilize node and string type publish topic at the loop rate of 10Hz.</span>
+<span class="lineno">14 </span><span class="sd">    &#39;&#39;&#39;</span>
+<span class="lineno">15 </span>    
+<span class="lineno">16 </span>    <span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s2">&quot;rospy_simple_publisher_node&quot;</span><span class="p">,</span> <span class="n">anonymous</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="lineno">17 </span>    <span class="n">rate</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Rate</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="lineno">18 </span>    <span class="n">pub</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Publisher</span><span class="p">(</span><span class="s2">&quot;rospy_pub_sub/event_out&quot;</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="n">queue_size</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="lineno">19 </span>    
+<span class="lineno">20 </span>    <span class="k">while</span> <span class="ow">not</span> <span class="n">rospy</span><span class="o">.</span><span class="n">is_shutdown</span><span class="p">():</span>
+<span class="lineno">21 </span>        <span class="n">string_msg</span> <span class="o">=</span> <span class="s2">&quot;Kiriman data dari rospy_simple_publisher_node&quot;</span>
+<span class="lineno">22 </span>        <span class="n">pub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">string_msg</span><span class="p">)</span>
+<span class="lineno">23 </span>        <span class="n">rate</span><span class="o">.</span><span class="n">sleep</span><span class="p">()</span>
+<span class="lineno">24 </span>
+</pre></div>
+</div>
+<p>Dan node <a class="reference external" href="https://github.com/elmurobotik/ros-tutorials/blob/master/ros-beginners/rospy_simple_publisher_subscriber/ros/scripts/simple_subscriber.py">simple_subscriber.py</a>
 akan <cite>subscribe</cite> <cite>String</cite> message ke topic <cite>/rospy_pub_sub/event_out</cite></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="lineno"> 0 </span><span class="ch">#!/usr/bin/env python</span>
+<span class="lineno"> 1 </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="lineno"> 2 </span><span class="sd">This script is a simple python node which subscribes to</span>
+<span class="lineno"> 3 </span><span class="sd">rospy_pub_sub/event_out topic</span>
+<span class="lineno"> 4 </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="lineno"> 5 </span><span class="c1">#-*- encoding: utf-8 -*-</span>
+<span class="lineno"> 6 </span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;mohammad wasil&#39;</span>
+<span class="lineno"> 7 </span>
+<span class="lineno"> 8 </span><span class="kn">import</span> <span class="nn">rospy</span>
+<span class="lineno"> 9 </span><span class="kn">from</span> <span class="nn">std_msgs.msg</span> <span class="kn">import</span> <span class="n">String</span>
+<span class="lineno">10 </span>
+<span class="lineno">11 </span><span class="k">def</span> <span class="nf">pub_sub_callback</span><span class="p">(</span><span class="n">msg</span><span class="p">):</span>
+<span class="lineno">12 </span>    <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s2">&quot;Data yang diterima: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">msg</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+<span class="lineno">13 </span>
+<span class="lineno">14 </span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="lineno">15 </span>    <span class="sd">&#39;&#39;&#39;</span>
+<span class="lineno">16 </span><span class="sd">    Initilize node and string type publish topic at the loop rate of 10Hz.</span>
+<span class="lineno">17 </span><span class="sd">    &#39;&#39;&#39;</span>
+<span class="lineno">18 </span>    
+<span class="lineno">19 </span>    <span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s2">&quot;rospy_simple_subscriber_node&quot;</span><span class="p">,</span> <span class="n">anonymous</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="lineno">20 </span>    <span class="n">rate</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Rate</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="lineno">21 </span>
+<span class="lineno">22 </span>    <span class="k">while</span> <span class="ow">not</span> <span class="n">rospy</span><span class="o">.</span><span class="n">is_shutdown</span><span class="p">():</span>
+<span class="lineno">23 </span>
+<span class="lineno">24 </span>        <span class="n">rospy</span><span class="o">.</span><span class="n">Subscriber</span><span class="p">(</span><span class="s2">&quot;rospy_pub_sub/event_out&quot;</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="n">pub_sub_callback</span><span class="p">)</span>
+<span class="lineno">25 </span>        
+<span class="lineno">26 </span>        <span class="n">rate</span><span class="o">.</span><span class="n">sleep</span><span class="p">()</span>
+<span class="lineno">27 </span>
+</pre></div>
+</div>
 <p>Dimana:</p>
 <ul class="simple">
 <li><p><cite>pub_sub_callback</cite>: adalah <cite>callback</cite> dari subscribernya.</p></li>

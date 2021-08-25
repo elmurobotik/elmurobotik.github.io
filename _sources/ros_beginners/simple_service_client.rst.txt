@@ -75,7 +75,7 @@ Server (*simple_server.py*) dan client node (*simple_client.py*) akan tempatkan 
   diterima. Berikut adalah contoh service untuk menghitung jumlah kata menggunakan
   python dan cpp.
 
-  .. literalinclude:: ../../../ros-tutorials/ros-beginners/rospy_simple_service_client/ros/script/simple_server.py
+  .. literalinclude:: ../../../ros-tutorials/ros-beginners/rospy_simple_service_client/ros/scripts/simple_server.py
     :language: python
     :lineno-start: 0
     :linenos:
@@ -108,7 +108,7 @@ Server (*simple_server.py*) dan client node (*simple_client.py*) akan tempatkan 
 
 * Python client node
 
-  .. literalinclude:: ../../../ros-tutorials/ros-beginners/rospy_simple_service_client/ros/script/simple_client.py
+  .. literalinclude:: ../../../ros-tutorials/ros-beginners/rospy_simple_service_client/ros/scripts/simple_client.py
     :language: python
     :lineno-start: 0
     :linenos:    

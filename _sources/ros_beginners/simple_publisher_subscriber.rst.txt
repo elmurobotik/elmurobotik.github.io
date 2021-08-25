@@ -18,18 +18,18 @@ Contoh `nodes` yang berkomunikasi via topics:
 Publisher-Subscriber Python
 ---------------------------
 
-  Node `simple_publisher.py <https://github.com/elmurobotik/ros-tutorials/blob/master/ros-beginners/rospy_simple_publisher_subscriber/ros/script/simple_publisher.py>`_ 
+  Node `simple_publisher.py <https://github.com/elmurobotik/ros-tutorials/blob/master/ros-beginners/rospy_simple_publisher_subscriber/ros/scripts/simple_publisher.py>`_ 
   akan `publish` `String` message ke topic `/rospy_pub_sub/event_out`
 
-  .. literalinclude:: ../../../ros-tutorials/ros-beginners/rospy_simple_publisher_subscriber/ros/script/simple_publisher.py
+  .. literalinclude:: ../../../ros-tutorials/ros-beginners/rospy_simple_publisher_subscriber/ros/scripts/simple_publisher.py
     :language: python
     :lineno-start: 0
     :linenos:
 
-  Dan node `simple_subscriber.py <https://github.com/elmurobotik/ros-tutorials/blob/master/ros-beginners/rospy_simple_publisher_subscriber/ros/script/simple_subscriber.py>`_ 
+  Dan node `simple_subscriber.py <https://github.com/elmurobotik/ros-tutorials/blob/master/ros-beginners/rospy_simple_publisher_subscriber/ros/scripts/simple_subscriber.py>`_ 
   akan `subscribe` `String` message ke topic `/rospy_pub_sub/event_out`
 
-  .. literalinclude:: ../../../ros-tutorials/ros-beginners/rospy_simple_publisher_subscriber/ros/script/simple_subscriber.py
+  .. literalinclude:: ../../../ros-tutorials/ros-beginners/rospy_simple_publisher_subscriber/ros/scripts/simple_subscriber.py
     :language: python
     :lineno-start: 0
     :linenos:
