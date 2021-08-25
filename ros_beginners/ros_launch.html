@@ -210,6 +210,13 @@ Beberapa fitur roslaunch:</p>
 <p>Berikut adalah contoh roslaunch untuk menjalankan simple_server node C++ dan Python:</p>
 <div class="section" id="simple-roslaunch">
 <h2>Simple roslaunch<a class="headerlink" href="#simple-roslaunch" title="Link permanen untuk headline ini">¶</a></h2>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="lineno">0 </span><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+<span class="lineno">1 </span><span class="nt">&lt;launch&gt;</span>
+<span class="lineno">2 </span>  <span class="nt">&lt;node</span> <span class="na">pkg=</span><span class="s">&quot;roscpp_simple_service_client&quot;</span> <span class="na">type=</span><span class="s">&quot;simple_server&quot;</span> <span class="na">name=</span><span class="s">&quot;simple_server_cpp&quot;</span> <span class="na">output=</span><span class="s">&quot;screen&quot;</span> <span class="nt">/&gt;</span>
+<span class="lineno">3 </span>  <span class="nt">&lt;node</span> <span class="na">pkg=</span><span class="s">&quot;rospy_simple_service_client&quot;</span> <span class="na">type=</span><span class="s">&quot;simple_server.py&quot;</span> <span class="na">name=</span><span class="s">&quot;simple_server_python&quot;</span> <span class="na">output=</span><span class="s">&quot;screen&quot;</span> <span class="nt">/&gt;</span>
+<span class="lineno">4 </span><span class="nt">&lt;/launch&gt;</span>
+</pre></div>
+</div>
 <ul class="simple">
 <li><p>Argumen:</p>
 <ul>
@@ -223,6 +230,15 @@ Beberapa fitur roslaunch:</p>
 </div>
 <div class="section" id="roslaunch-parameter-dan-argumen">
 <h2>Roslaunch parameter dan argumen<a class="headerlink" href="#roslaunch-parameter-dan-argumen" title="Link permanen untuk headline ini">¶</a></h2>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="lineno">0 </span><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+<span class="lineno">1 </span><span class="nt">&lt;launch&gt;</span>
+<span class="lineno">2 </span>  <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;count_articles&quot;</span> <span class="na">default=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
+<span class="lineno">3 </span>  <span class="nt">&lt;node</span> <span class="na">pkg=</span><span class="s">&quot;simple_roslaunch&quot;</span> <span class="na">type=</span><span class="s">&quot;simple_client&quot;</span> <span class="na">name=</span><span class="s">&quot;simple_client_cpp&quot;</span> <span class="na">output=</span><span class="s">&quot;screen&quot;</span> <span class="nt">&gt;</span>
+<span class="lineno">4 </span>    <span class="nt">&lt;param</span> <span class="na">name=</span><span class="s">&quot;count_articles&quot;</span> <span class="na">value=</span><span class="s">&quot;$(arg count_articles)&quot;</span> <span class="nt">/&gt;</span>
+<span class="lineno">5 </span>  <span class="nt">&lt;/node&gt;</span>
+<span class="lineno">6 </span><span class="nt">&lt;/launch&gt;</span>
+</pre></div>
+</div>
 <ul class="simple">
 <li><p>Argumen untuk param:</p>
 <ul>

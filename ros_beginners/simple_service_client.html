@@ -259,38 +259,6 @@ Jika belum paham tentang paham tentang packages, silahkan buka <a class="referen
 <em>callback</em>. Server menyediakan callback dan akan di panggil ketika request
 diterima. Berikut adalah contoh service untuk menghitung jumlah kata menggunakan
 python dan cpp.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="lineno"> 0 </span><span class="ch">#!/usr/bin/env python</span>
-<span class="lineno"> 1 </span>
-<span class="lineno"> 2 </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="lineno"> 3 </span><span class="sd">This script is a simple python node which advertizes ros service</span>
-<span class="lineno"> 4 </span><span class="sd">server rospy_word_count</span>
-<span class="lineno"> 5 </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="lineno"> 6 </span><span class="c1">#-*- encoding: utf-8 -*-</span>
-<span class="lineno"> 7 </span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;mohammad wasil&#39;</span>
-<span class="lineno"> 8 </span>
-<span class="lineno"> 9 </span><span class="kn">import</span> <span class="nn">rospy</span>
-<span class="lineno">10 </span><span class="kn">from</span> <span class="nn">ros_custom_msgs.srv</span> <span class="kn">import</span> <span class="n">CountWords</span><span class="p">,</span> <span class="n">CountWordsResponse</span>
-<span class="lineno">11 </span>
-<span class="lineno">12 </span><span class="k">def</span> <span class="nf">server_callback</span><span class="p">(</span><span class="n">req</span><span class="p">):</span>
-<span class="lineno">13 </span>  <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s2">&quot;Received request: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">req</span><span class="o">.</span><span class="n">words</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
-<span class="lineno">14 </span>  
-<span class="lineno">15 </span>  <span class="n">words</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">words</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
-<span class="lineno">16 </span>  <span class="n">resp</span> <span class="o">=</span> <span class="n">CountWordsResponse</span><span class="p">()</span>
-<span class="lineno">17 </span>
-<span class="lineno">18 </span>  <span class="k">if</span> <span class="n">req</span><span class="o">.</span><span class="n">count_articles</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
-<span class="lineno">19 </span>    <span class="n">english_articles</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;an&#39;</span><span class="p">,</span> <span class="s1">&#39;the&#39;</span><span class="p">]</span> 
-<span class="lineno">20 </span>    <span class="n">resp</span><span class="o">.</span><span class="n">num_articles</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="nb">len</span><span class="p">([</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span> <span class="k">if</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">english_articles</span><span class="p">])</span>
-<span class="lineno">21 </span>
-<span class="lineno">22 </span>  <span class="n">resp</span><span class="o">.</span><span class="n">num_words</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span> <span class="o">-</span> <span class="n">resp</span><span class="o">.</span><span class="n">num_articles</span><span class="o">.</span><span class="n">data</span>
-<span class="lineno">23 </span>
-<span class="lineno">24 </span>  <span class="k">return</span> <span class="n">resp</span>
-<span class="lineno">25 </span>
-<span class="lineno">26 </span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-<span class="lineno">27 </span>  <span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s2">&quot;rospy_simple_server_node&quot;</span><span class="p">,</span> <span class="n">anonymous</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-<span class="lineno">28 </span>  <span class="n">rospy</span><span class="o">.</span><span class="n">Service</span><span class="p">(</span><span class="s2">&quot;rospy_word_count&quot;</span><span class="p">,</span> <span class="n">CountWords</span><span class="p">,</span> <span class="n">server_callback</span><span class="p">)</span>  
-<span class="lineno">29 </span>  <span class="n">rospy</span><span class="o">.</span><span class="n">spin</span><span class="p">()</span>
-</pre></div>
-</div>
 <p><em>simple_server.py</em> harus executable dengan cara:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chmod +x simple_server.py
 </pre></div>
@@ -310,47 +278,7 @@ terminal.</p>
 </pre></div>
 </div>
 </li>
-<li><p>Python client node</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="lineno"> 0 </span><span class="ch">#!/usr/bin/env python</span>
-<span class="lineno"> 1 </span>
-<span class="lineno"> 2 </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="lineno"> 3 </span><span class="sd">This script is a simple python node which calls ros service</span>
-<span class="lineno"> 4 </span><span class="sd">rospy_word_count and send request to the server.</span>
-<span class="lineno"> 5 </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="lineno"> 6 </span><span class="c1">#-*- encoding: utf-8 -*-</span>
-<span class="lineno"> 7 </span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;mohammad wasil&#39;</span>
-<span class="lineno"> 8 </span>
-<span class="lineno"> 9 </span><span class="kn">import</span> <span class="nn">rospy</span>
-<span class="lineno">10 </span><span class="kn">from</span> <span class="nn">ros_custom_msgs.srv</span> <span class="kn">import</span> <span class="n">CountWords</span><span class="p">,</span> <span class="n">CountWordsRequest</span>
-<span class="lineno">11 </span>
-<span class="lineno">12 </span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-<span class="lineno">13 </span>
-<span class="lineno">14 </span>  <span class="c1">#you are not necessarilt inilitialize node</span>
-<span class="lineno">15 </span>  <span class="c1">#since service client does not have to be a node</span>
-<span class="lineno">16 </span>  <span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s2">&quot;rospy_simple_client_node&quot;</span><span class="p">,</span> <span class="n">anonymous</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-<span class="lineno">17 </span>  <span class="n">rate</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Rate</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="lineno">18 </span>
-<span class="lineno">19 </span>  <span class="k">while</span> <span class="ow">not</span> <span class="n">rospy</span><span class="o">.</span><span class="n">is_shutdown</span><span class="p">():</span>
-<span class="lineno">20 </span>    <span class="n">rospy</span><span class="o">.</span><span class="n">wait_for_service</span><span class="p">(</span><span class="s1">&#39;rospy_word_count&#39;</span><span class="p">)</span>
-<span class="lineno">21 </span>    <span class="k">try</span><span class="p">:</span>
-<span class="lineno">22 </span>      <span class="n">word_count</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceProxy</span><span class="p">(</span><span class="s1">&#39;rospy_word_count&#39;</span><span class="p">,</span> <span class="n">CountWords</span><span class="p">)</span>
-<span class="lineno">23 </span>
-<span class="lineno">24 </span>      <span class="n">req</span> <span class="o">=</span> <span class="n">CountWordsRequest</span><span class="p">()</span>
-<span class="lineno">25 </span>      <span class="n">req</span><span class="o">.</span><span class="n">words</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span>  <span class="s2">&quot;a test from the client node for a simple server client&quot;</span>
-<span class="lineno">26 </span>      <span class="n">req</span><span class="o">.</span><span class="n">count_articles</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">True</span>
-<span class="lineno">27 </span>
-<span class="lineno">28 </span>      <span class="n">resp</span> <span class="o">=</span> <span class="n">word_count</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
-<span class="lineno">29 </span>
-<span class="lineno">30 </span>      <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s2">&quot;Result -&gt; Num of words: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">resp</span><span class="o">.</span><span class="n">num_words</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
-<span class="lineno">31 </span>      <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s2">&quot;Result -&gt; Num of articles: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">resp</span><span class="o">.</span><span class="n">num_articles</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
-<span class="lineno">32 </span>
-<span class="lineno">33 </span>    <span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceException</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
-<span class="lineno">34 </span>      <span class="k">print</span> <span class="s2">&quot;Service call failed: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">e</span>
-<span class="lineno">35 </span>
-<span class="lineno">36 </span>    <span class="n">rate</span><span class="o">.</span><span class="n">sleep</span><span class="p">()</span>
-</pre></div>
-</div>
-</li>
+<li><p>Python client node</p></li>
 </ul>
 </div>
 <div class="section" id="server-client-c">
@@ -369,33 +297,37 @@ terminal.</p>
 <span class="lineno"> 9 </span>  <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">words</span><span class="p">;</span>
 <span class="lineno">10 </span>  <span class="n">boost</span><span class="o">::</span><span class="n">split</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="n">req</span><span class="p">.</span><span class="n">words</span><span class="p">.</span><span class="n">data</span><span class="p">,</span> <span class="n">boost</span><span class="o">::</span><span class="n">is_any_of</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\t</span><span class="s"> &quot;</span><span class="p">));</span>
 <span class="lineno">11 </span>  
-<span class="lineno">12 </span>  <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">english_articles</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;an&quot;</span><span class="p">,</span> <span class="s">&quot;the&quot;</span><span class="p">};</span>
-<span class="lineno">13 </span>  <span class="kt">int</span> <span class="n">num_of_articles</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="lineno">14 </span>  <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="k">const</span><span class="o">&amp;</span> <span class="nl">word</span><span class="p">:</span> <span class="n">words</span><span class="p">)</span>
+<span class="lineno">12 </span>  <span class="n">resp</span><span class="p">.</span><span class="n">num_words</span><span class="p">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">words</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+<span class="lineno">13 </span>  
+<span class="lineno">14 </span>  <span class="k">if</span> <span class="p">(</span><span class="n">req</span><span class="p">.</span><span class="n">count_articles</span><span class="p">.</span><span class="n">data</span><span class="p">)</span>
 <span class="lineno">15 </span>  <span class="p">{</span>
-<span class="lineno">16 </span>    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">lower_word</span> <span class="o">=</span> <span class="n">boost</span><span class="o">::</span><span class="n">algorithm</span><span class="o">::</span><span class="n">to_lower_copy</span><span class="p">(</span><span class="n">word</span><span class="p">);</span>
-<span class="lineno">17 </span>    <span class="k">if</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">find</span><span class="p">(</span><span class="n">english_articles</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">english_articles</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> 
-<span class="lineno">18 </span>        <span class="n">lower_word</span> <span class="p">)</span> <span class="o">!=</span> <span class="n">english_articles</span><span class="p">.</span><span class="n">end</span><span class="p">())</span>
+<span class="lineno">16 </span>    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">english_articles</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;an&quot;</span><span class="p">,</span> <span class="s">&quot;the&quot;</span><span class="p">};</span>
+<span class="lineno">17 </span>    <span class="kt">int</span> <span class="n">num_of_articles</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="lineno">18 </span>    <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="k">const</span><span class="o">&amp;</span> <span class="nl">word</span><span class="p">:</span> <span class="n">words</span><span class="p">)</span>
 <span class="lineno">19 </span>    <span class="p">{</span>
-<span class="lineno">20 </span>      <span class="n">num_of_articles</span> <span class="o">++</span><span class="p">;</span>
-<span class="lineno">21 </span>    <span class="p">}</span>
-<span class="lineno">22 </span>  <span class="p">}</span>
-<span class="lineno">23 </span>  
-<span class="lineno">24 </span>  <span class="n">resp</span><span class="p">.</span><span class="n">num_articles</span><span class="p">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">num_of_articles</span><span class="p">;</span>
-<span class="lineno">25 </span>  <span class="n">resp</span><span class="p">.</span><span class="n">num_words</span><span class="p">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">words</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="n">num_of_articles</span><span class="p">;</span>
-<span class="lineno">26 </span>  
-<span class="lineno">27 </span>  <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
-<span class="lineno">28 </span><span class="p">}</span>
-<span class="lineno">29 </span>
-<span class="lineno">30 </span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span>
-<span class="lineno">31 </span><span class="p">{</span>
-<span class="lineno">32 </span>  <span class="n">ros</span><span class="o">::</span><span class="n">init</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">,</span> <span class="s">&quot;roscpp_simple_server_node&quot;</span><span class="p">);</span>
-<span class="lineno">33 </span>  <span class="n">ros</span><span class="o">::</span><span class="n">NodeHandle</span> <span class="n">nh</span><span class="p">;</span>
-<span class="lineno">34 </span>  <span class="n">ros</span><span class="o">::</span><span class="n">ServiceServer</span> <span class="n">service</span> <span class="o">=</span> <span class="n">nh</span><span class="p">.</span><span class="n">advertiseService</span><span class="p">(</span><span class="s">&quot;roscpp_word_count&quot;</span><span class="p">,</span> <span class="n">serverCallback</span><span class="p">);</span>
-<span class="lineno">35 </span>  <span class="n">ros</span><span class="o">::</span><span class="n">spin</span><span class="p">();</span>
-<span class="lineno">36 </span>  
-<span class="lineno">37 </span>  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="lineno">38 </span><span class="p">}</span>
+<span class="lineno">20 </span>      <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">lower_word</span> <span class="o">=</span> <span class="n">boost</span><span class="o">::</span><span class="n">algorithm</span><span class="o">::</span><span class="n">to_lower_copy</span><span class="p">(</span><span class="n">word</span><span class="p">);</span>
+<span class="lineno">21 </span>      <span class="k">if</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">find</span><span class="p">(</span><span class="n">english_articles</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">english_articles</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> 
+<span class="lineno">22 </span>          <span class="n">lower_word</span> <span class="p">)</span> <span class="o">!=</span> <span class="n">english_articles</span><span class="p">.</span><span class="n">end</span><span class="p">())</span>
+<span class="lineno">23 </span>      <span class="p">{</span>
+<span class="lineno">24 </span>        <span class="n">num_of_articles</span> <span class="o">++</span><span class="p">;</span>
+<span class="lineno">25 </span>      <span class="p">}</span>
+<span class="lineno">26 </span>    <span class="p">}</span>
+<span class="lineno">27 </span>    
+<span class="lineno">28 </span>    <span class="n">resp</span><span class="p">.</span><span class="n">num_articles</span><span class="p">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">num_of_articles</span><span class="p">;</span>
+<span class="lineno">29 </span>    <span class="n">resp</span><span class="p">.</span><span class="n">num_words</span><span class="p">.</span><span class="n">data</span> <span class="o">-=</span> <span class="n">num_of_articles</span><span class="p">;</span>
+<span class="lineno">30 </span>  <span class="p">}</span>
+<span class="lineno">31 </span>  <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+<span class="lineno">32 </span><span class="p">}</span>
+<span class="lineno">33 </span>
+<span class="lineno">34 </span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span>
+<span class="lineno">35 </span><span class="p">{</span>
+<span class="lineno">36 </span>  <span class="n">ros</span><span class="o">::</span><span class="n">init</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">,</span> <span class="s">&quot;roscpp_simple_server_node&quot;</span><span class="p">);</span>
+<span class="lineno">37 </span>  <span class="n">ros</span><span class="o">::</span><span class="n">NodeHandle</span> <span class="n">nh</span><span class="p">;</span>
+<span class="lineno">38 </span>  <span class="n">ros</span><span class="o">::</span><span class="n">ServiceServer</span> <span class="n">service</span> <span class="o">=</span> <span class="n">nh</span><span class="p">.</span><span class="n">advertiseService</span><span class="p">(</span><span class="s">&quot;roscpp_word_count&quot;</span><span class="p">,</span> <span class="n">serverCallback</span><span class="p">);</span>
+<span class="lineno">39 </span>  <span class="n">ros</span><span class="o">::</span><span class="n">spin</span><span class="p">();</span>
+<span class="lineno">40 </span>  
+<span class="lineno">41 </span>  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="lineno">42 </span><span class="p">}</span>
 </pre></div>
 </div>
 </li>
