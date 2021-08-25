@@ -29,7 +29,7 @@ Berikut adalah contoh `CMakeLists.txt` pada package
 `roscpp_simple_service_client <https://github.com/elmurobotik/ros-tutorials/tree/master/ros-beginners/roscpp_simple_service_client>`_.
 
 .. literalinclude:: ../../../ros-tutorials/ros-beginners/roscpp_simple_service_client/CMakeLists.txt
-  :language: bash
+  :language: cmake
   :lineno-start: 0
   :linenos:
 
@@ -43,6 +43,6 @@ Berikut adalah contoh `package.xml` pada package
 `roscpp_simple_service_client <https://github.com/elmurobotik/ros-tutorials/tree/master/ros-beginners/roscpp_simple_service_client>`_.
 
 .. literalinclude:: ../../../ros-tutorials/ros-beginners/roscpp_simple_service_client/package.xml
-  :language: bash
+  :language: xml
   :lineno-start: 0
   :linenos:

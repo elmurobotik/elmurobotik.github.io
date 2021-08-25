@@ -13,7 +13,7 @@ Misalnya dalam projek ini, mereka akan di tempatkan di package *ros_custom_msgs*
 Setelah itu kita bisa edit CMakeLists.txt dan package.xml seperti berikut ini:
 
 .. literalinclude:: ../../../ros-tutorials/ros-beginners/ros_custom_msgs/CMakeLists.txt
-    :language: bash
+    :language: cmake
     :lineno-start: 0
     :linenos:
 
@@ -57,9 +57,27 @@ adalah jumlah kata (*Int32*) dalam kalimat tersebut.
 
 .. code-block:: bash
 
-    std_msgs/string words
-    ---
-    std_msgs/Int32 num_words
+  std_msgs/string words
+  ---
+  std_msgs/Int32 num_words
+
+Kemudian build package *ros_custom_msgs*:
+
+.. code-block:: bash
+
+  catkin build ros_custom_msgs
+
+Verifikasi msg, srv atau action kita sudah ready:
+
+.. code-block:: bash 
+
+  $ rossrv show CountWords
+  [ros_custom_msgs/CountWords]:
+  std_msgs/String words
+  string data
+  ---
+  std_msgs/Int32 num_words
+  int32 data
 
 Membuat kostum msg file
 -----------------------
@@ -70,21 +88,3 @@ Membuat kostum action file
 --------------------------
 
 ToDo
-
-Kemudian build package *ros_custom_msgs*:
-
-.. code-block:: bash
-
-    catkin build ros_custom_msgs
-
-Verifikasi msg, srv atau action kita sudah ready:
-
-.. code-block:: bash 
-
-    $ rossrv show CountWords
-    [ros_custom_msgs/CountWords]:
-    std_msgs/String words
-    string data
-    ---
-    std_msgs/Int32 num_words
-    int32 data

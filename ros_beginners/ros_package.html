@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Membuat ROS Package &mdash; Dokumentasi Elmu Robotik 0.1.0</title>
+  <title>Membuat ROS Package &mdash; Democratize Robotics</title>
   
 
   
@@ -61,6 +61,9 @@
             <a href="../index.html" class="icon icon-home"> Elmu Robotik
           
 
+          
+            
+            <img src="../_static/elmurobotik-logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -213,45 +216,45 @@ secara otomatis akan ada di dalam kedua file tersebut.</p>
 <h2>CMakeLists.txt<a class="headerlink" href="#cmakelists-txt" title="Link permanen untuk headline ini">¶</a></h2>
 <p>Berikut adalah contoh <cite>CMakeLists.txt</cite> pada package
 <a class="reference external" href="https://github.com/elmurobotik/ros-tutorials/tree/master/ros-beginners/roscpp_simple_service_client">roscpp_simple_service_client</a>.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="lineno"> 0 </span>cmake_minimum_required<span class="o">(</span>VERSION <span class="m">2</span>.8.3<span class="o">)</span>
-<span class="lineno"> 1 </span>project<span class="o">(</span>roscpp_simple_service_client<span class="o">)</span>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="lineno"> 0 </span><span class="nb">cmake_minimum_required</span><span class="p">(</span><span class="s">VERSION</span> <span class="s">2.8.3</span><span class="p">)</span>
+<span class="lineno"> 1 </span><span class="nb">project</span><span class="p">(</span><span class="s">roscpp_simple_service_client</span><span class="p">)</span>
 <span class="lineno"> 2 </span>
-<span class="lineno"> 3 </span><span class="c1">## Compile as C++11, supported in ROS Kinetic and newer</span>
-<span class="lineno"> 4 </span>add_compile_options<span class="o">(</span>-std<span class="o">=</span>c++11<span class="o">)</span>
+<span class="lineno"> 3 </span><span class="c">## Compile as C++11, supported in ROS Kinetic and newer</span>
+<span class="lineno"> 4 </span><span class="nb">add_compile_options</span><span class="p">(</span><span class="s">-std=c++11</span><span class="p">)</span>
 <span class="lineno"> 5 </span>
-<span class="lineno"> 6 </span>find_package<span class="o">(</span>catkin REQUIRED COMPONENTS
-<span class="lineno"> 7 </span>  ros_custom_msgs
-<span class="lineno"> 8 </span>  roscpp
-<span class="lineno"> 9 </span><span class="o">)</span>
+<span class="lineno"> 6 </span><span class="nb">find_package</span><span class="p">(</span><span class="s">catkin</span> <span class="s">REQUIRED</span> <span class="s">COMPONENTS</span>
+<span class="lineno"> 7 </span>  <span class="s">ros_custom_msgs</span>
+<span class="lineno"> 8 </span>  <span class="s">roscpp</span>
+<span class="lineno"> 9 </span><span class="p">)</span>
 <span class="lineno">10 </span>
-<span class="lineno">11 </span>catkin_package<span class="o">(</span>
-<span class="lineno">12 </span><span class="o">)</span>
+<span class="lineno">11 </span><span class="nb">catkin_package</span><span class="p">(</span>
+<span class="lineno">12 </span><span class="p">)</span>
 <span class="lineno">13 </span>
-<span class="lineno">14 </span>include_directories<span class="o">(</span>
-<span class="lineno">15 </span><span class="c1"># include</span>
-<span class="lineno">16 </span>  <span class="si">${</span><span class="nv">catkin_INCLUDE_DIRS</span><span class="si">}</span>
-<span class="lineno">17 </span><span class="o">)</span>
+<span class="lineno">14 </span><span class="nb">include_directories</span><span class="p">(</span>
+<span class="lineno">15 </span><span class="c"># include</span>
+<span class="lineno">16 </span>  <span class="o">${</span><span class="nv">catkin_INCLUDE_DIRS</span><span class="o">}</span>
+<span class="lineno">17 </span><span class="p">)</span>
 <span class="lineno">18 </span>
-<span class="lineno">19 </span><span class="c1">#Executable</span>
-<span class="lineno">20 </span>add_executable<span class="o">(</span>simple_server
-<span class="lineno">21 </span>  ros/src/simple_server.cpp
-<span class="lineno">22 </span><span class="o">)</span>
-<span class="lineno">23 </span>add_dependencies<span class="o">(</span>simple_server 
-<span class="lineno">24 </span>  <span class="si">${</span><span class="nv">catkin_EXPORTED_TARGETS</span><span class="si">}</span>
-<span class="lineno">25 </span><span class="o">)</span>
-<span class="lineno">26 </span>target_link_libraries<span class="o">(</span>simple_server
-<span class="lineno">27 </span>  <span class="si">${</span><span class="nv">catkin_LIBRARIES</span><span class="si">}</span>
-<span class="lineno">28 </span><span class="o">)</span>
+<span class="lineno">19 </span><span class="c">#Executable</span>
+<span class="lineno">20 </span><span class="nb">add_executable</span><span class="p">(</span><span class="s">simple_server</span>
+<span class="lineno">21 </span>  <span class="s">ros/src/simple_server.cpp</span>
+<span class="lineno">22 </span><span class="p">)</span>
+<span class="lineno">23 </span><span class="nb">add_dependencies</span><span class="p">(</span><span class="s">simple_server</span> 
+<span class="lineno">24 </span>  <span class="o">${</span><span class="nv">catkin_EXPORTED_TARGETS</span><span class="o">}</span>
+<span class="lineno">25 </span><span class="p">)</span>
+<span class="lineno">26 </span><span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">simple_server</span>
+<span class="lineno">27 </span>  <span class="o">${</span><span class="nv">catkin_LIBRARIES</span><span class="o">}</span>
+<span class="lineno">28 </span><span class="p">)</span>
 <span class="lineno">29 </span>
-<span class="lineno">30 </span>add_executable<span class="o">(</span>simple_client
-<span class="lineno">31 </span>  ros/src/simple_client.cpp
-<span class="lineno">32 </span><span class="o">)</span>
-<span class="lineno">33 </span>add_dependencies<span class="o">(</span>simple_client
-<span class="lineno">34 </span>  <span class="si">${</span><span class="nv">catkin_EXPORTED_TARGETS</span><span class="si">}</span>
-<span class="lineno">35 </span><span class="o">)</span>
-<span class="lineno">36 </span>target_link_libraries<span class="o">(</span>simple_client
-<span class="lineno">37 </span>  <span class="si">${</span><span class="nv">catkin_LIBRARIES</span><span class="si">}</span>
-<span class="lineno">38 </span><span class="o">)</span>
+<span class="lineno">30 </span><span class="nb">add_executable</span><span class="p">(</span><span class="s">simple_client</span>
+<span class="lineno">31 </span>  <span class="s">ros/src/simple_client.cpp</span>
+<span class="lineno">32 </span><span class="p">)</span>
+<span class="lineno">33 </span><span class="nb">add_dependencies</span><span class="p">(</span><span class="s">simple_client</span>
+<span class="lineno">34 </span>  <span class="o">${</span><span class="nv">catkin_EXPORTED_TARGETS</span><span class="o">}</span>
+<span class="lineno">35 </span><span class="p">)</span>
+<span class="lineno">36 </span><span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">simple_client</span>
+<span class="lineno">37 </span>  <span class="o">${</span><span class="nv">catkin_LIBRARIES</span><span class="o">}</span>
+<span class="lineno">38 </span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -260,28 +263,28 @@ secara otomatis akan ada di dalam kedua file tersebut.</p>
 <p>Semua dependencies yang dibutuhkan dari package tersebut harus di definisikan dalam file ini.</p>
 <p>Berikut adalah contoh <cite>package.xml</cite> pada package
 <a class="reference external" href="https://github.com/elmurobotik/ros-tutorials/tree/master/ros-beginners/roscpp_simple_service_client">roscpp_simple_service_client</a>.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="lineno"> 0 </span>&lt;?xml <span class="nv">version</span><span class="o">=</span><span class="s2">&quot;1.0&quot;</span>?&gt;
-<span class="lineno"> 1 </span>&lt;package <span class="nv">format</span><span class="o">=</span><span class="s2">&quot;2&quot;</span>&gt;
-<span class="lineno"> 2 </span>  &lt;name&gt;roscpp_simple_service_client&lt;/name&gt;
-<span class="lineno"> 3 </span>  &lt;version&gt;0.0.0&lt;/version&gt;
-<span class="lineno"> 4 </span>  &lt;description&gt;The roscpp_simple_service_client package&lt;/description&gt;
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="lineno"> 0 </span><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+<span class="lineno"> 1 </span><span class="nt">&lt;package</span> <span class="na">format=</span><span class="s">&quot;2&quot;</span><span class="nt">&gt;</span>
+<span class="lineno"> 2 </span>  <span class="nt">&lt;name&gt;</span>roscpp_simple_service_client<span class="nt">&lt;/name&gt;</span>
+<span class="lineno"> 3 </span>  <span class="nt">&lt;version&gt;</span>0.0.0<span class="nt">&lt;/version&gt;</span>
+<span class="lineno"> 4 </span>  <span class="nt">&lt;description&gt;</span>The roscpp_simple_service_client package<span class="nt">&lt;/description&gt;</span>
 <span class="lineno"> 5 </span>
-<span class="lineno"> 6 </span>  &lt;author <span class="nv">email</span><span class="o">=</span><span class="s2">&quot;mwasil@outlook.co.id&quot;</span>&gt;Mohammad Wasil&lt;/author&gt;
-<span class="lineno"> 7 </span>  &lt;maintainer <span class="nv">email</span><span class="o">=</span><span class="s2">&quot;mwasil@outlook.co.id&quot;</span>&gt;Mohammad Wasil&lt;/maintainer&gt;
+<span class="lineno"> 6 </span>  <span class="nt">&lt;author</span> <span class="na">email=</span><span class="s">&quot;mwasil@outlook.co.id&quot;</span><span class="nt">&gt;</span>Mohammad Wasil<span class="nt">&lt;/author&gt;</span>
+<span class="lineno"> 7 </span>  <span class="nt">&lt;maintainer</span> <span class="na">email=</span><span class="s">&quot;mwasil@outlook.co.id&quot;</span><span class="nt">&gt;</span>Mohammad Wasil<span class="nt">&lt;/maintainer&gt;</span>
 <span class="lineno"> 8 </span>
-<span class="lineno"> 9 </span>  &lt;license&gt;GPL-3.0&lt;/license&gt;
+<span class="lineno"> 9 </span>  <span class="nt">&lt;license&gt;</span>GPL-3.0<span class="nt">&lt;/license&gt;</span>
 <span class="lineno">10 </span>
-<span class="lineno">11 </span>  &lt;buildtool_depend&gt;catkin&lt;/buildtool_depend&gt;
-<span class="lineno">12 </span>  &lt;build_depend&gt;ros_custom_msgs&lt;/build_depend&gt;
-<span class="lineno">13 </span>  &lt;build_depend&gt;roscpp&lt;/build_depend&gt;
+<span class="lineno">11 </span>  <span class="nt">&lt;buildtool_depend&gt;</span>catkin<span class="nt">&lt;/buildtool_depend&gt;</span>
+<span class="lineno">12 </span>  <span class="nt">&lt;build_depend&gt;</span>ros_custom_msgs<span class="nt">&lt;/build_depend&gt;</span>
+<span class="lineno">13 </span>  <span class="nt">&lt;build_depend&gt;</span>roscpp<span class="nt">&lt;/build_depend&gt;</span>
 <span class="lineno">14 </span>  
-<span class="lineno">15 </span>  &lt;build_export_depend&gt;ros_custom_msgs&lt;/build_export_depend&gt;
-<span class="lineno">16 </span>  &lt;build_export_depend&gt;roscpp&lt;/build_export_depend&gt;
+<span class="lineno">15 </span>  <span class="nt">&lt;build_export_depend&gt;</span>ros_custom_msgs<span class="nt">&lt;/build_export_depend&gt;</span>
+<span class="lineno">16 </span>  <span class="nt">&lt;build_export_depend&gt;</span>roscpp<span class="nt">&lt;/build_export_depend&gt;</span>
 <span class="lineno">17 </span>  
-<span class="lineno">18 </span>  &lt;exec_depend&gt;ros_custom_msgs&lt;/exec_depend&gt;
-<span class="lineno">19 </span>  &lt;exec_depend&gt;roscpp&lt;/exec_depend&gt;
+<span class="lineno">18 </span>  <span class="nt">&lt;exec_depend&gt;</span>ros_custom_msgs<span class="nt">&lt;/exec_depend&gt;</span>
+<span class="lineno">19 </span>  <span class="nt">&lt;exec_depend&gt;</span>roscpp<span class="nt">&lt;/exec_depend&gt;</span>
 <span class="lineno">20 </span>
-<span class="lineno">21 </span>&lt;/package&gt;
+<span class="lineno">21 </span><span class="nt">&lt;/package&gt;</span>
 </pre></div>
 </div>
 </div>

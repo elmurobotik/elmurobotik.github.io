@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Kostum messages, srv dan action &mdash; Dokumentasi Elmu Robotik 0.1.0</title>
+  <title>Kostum messages, srv dan action &mdash; Democratize Robotics</title>
   
 
   
@@ -61,6 +61,9 @@
             <a href="../index.html" class="icon icon-home"> Elmu Robotik
           
 
+          
+            
+            <img src="../_static/elmurobotik-logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -201,45 +204,45 @@ Misalnya dalam projek ini, mereka akan di tempatkan di package <em>ros_custom_ms
 </pre></div>
 </div>
 <p>Setelah itu kita bisa edit CMakeLists.txt dan package.xml seperti berikut ini:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="lineno"> 0 </span>cmake_minimum_required<span class="o">(</span>VERSION <span class="m">2</span>.8.3<span class="o">)</span>
-<span class="lineno"> 1 </span>project<span class="o">(</span>ros_custom_msgs<span class="o">)</span>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="lineno"> 0 </span><span class="nb">cmake_minimum_required</span><span class="p">(</span><span class="s">VERSION</span> <span class="s">2.8.3</span><span class="p">)</span>
+<span class="lineno"> 1 </span><span class="nb">project</span><span class="p">(</span><span class="s">ros_custom_msgs</span><span class="p">)</span>
 <span class="lineno"> 2 </span>
-<span class="lineno"> 3 </span><span class="c1">## Compile as C++11, supported in ROS Kinetic and newer</span>
-<span class="lineno"> 4 </span><span class="c1"># add_compile_options(-std=c++11)</span>
+<span class="lineno"> 3 </span><span class="c">## Compile as C++11, supported in ROS Kinetic and newer</span>
+<span class="lineno"> 4 </span><span class="c"># add_compile_options(-std=c++11)</span>
 <span class="lineno"> 5 </span>
-<span class="lineno"> 6 </span>find_package<span class="o">(</span>catkin REQUIRED COMPONENTS
-<span class="lineno"> 7 </span>  std_msgs
-<span class="lineno"> 8 </span>  message_generation
-<span class="lineno"> 9 </span><span class="o">)</span>
+<span class="lineno"> 6 </span><span class="nb">find_package</span><span class="p">(</span><span class="s">catkin</span> <span class="s">REQUIRED</span> <span class="s">COMPONENTS</span>
+<span class="lineno"> 7 </span>  <span class="s">std_msgs</span>
+<span class="lineno"> 8 </span>  <span class="s">message_generation</span>
+<span class="lineno"> 9 </span><span class="p">)</span>
 <span class="lineno">10 </span>
-<span class="lineno">11 </span><span class="c1">#add_action_files(DIRECTORY action</span>
-<span class="lineno">12 </span><span class="c1">#   FILES</span>
-<span class="lineno">13 </span><span class="c1">#     DetectScene.action</span>
-<span class="lineno">14 </span><span class="c1">#)</span>
+<span class="lineno">11 </span><span class="c">#add_action_files(DIRECTORY action</span>
+<span class="lineno">12 </span><span class="c">#   FILES</span>
+<span class="lineno">13 </span><span class="c">#     DetectScene.action</span>
+<span class="lineno">14 </span><span class="c">#)</span>
 <span class="lineno">15 </span> 
-<span class="lineno">16 </span><span class="c1">#add_message_files(</span>
-<span class="lineno">17 </span><span class="c1">#   FILES</span>
-<span class="lineno">18 </span><span class="c1">#	    contoh_msg.msg</span>
-<span class="lineno">19 </span><span class="c1">#)</span>
+<span class="lineno">16 </span><span class="c">#add_message_files(</span>
+<span class="lineno">17 </span><span class="c">#   FILES</span>
+<span class="lineno">18 </span><span class="c">#	    contoh_msg.msg</span>
+<span class="lineno">19 </span><span class="c">#)</span>
 <span class="lineno">20 </span>
-<span class="lineno">21 </span><span class="c1"># Generate services in the &#39;srv&#39; folder</span>
-<span class="lineno">22 </span>add_service_files<span class="o">(</span>
-<span class="lineno">23 </span>  FILES
-<span class="lineno">24 </span>    CountWords.srv
-<span class="lineno">25 </span><span class="o">)</span>
+<span class="lineno">21 </span><span class="c"># Generate services in the &#39;srv&#39; folder</span>
+<span class="lineno">22 </span><span class="nb">add_service_files</span><span class="p">(</span>
+<span class="lineno">23 </span>  <span class="s">FILES</span>
+<span class="lineno">24 </span>    <span class="s">CountWords.srv</span>
+<span class="lineno">25 </span><span class="p">)</span>
 <span class="lineno">26 </span>
-<span class="lineno">27 </span><span class="c1">## Generate added messages and services with any dependencies listed here</span>
-<span class="lineno">28 </span>generate_messages<span class="o">(</span>
-<span class="lineno">29 </span>  DEPENDENCIES
-<span class="lineno">30 </span>    std_msgs  <span class="c1"># Or other packages containing msgs</span>
-<span class="lineno">31 </span><span class="o">)</span>
+<span class="lineno">27 </span><span class="c">## Generate added messages and services with any dependencies listed here</span>
+<span class="lineno">28 </span><span class="nb">generate_messages</span><span class="p">(</span>
+<span class="lineno">29 </span>  <span class="s">DEPENDENCIES</span>
+<span class="lineno">30 </span>    <span class="s">std_msgs</span>  <span class="c"># Or other packages containing msgs</span>
+<span class="lineno">31 </span><span class="p">)</span>
 <span class="lineno">32 </span>
-<span class="lineno">33 </span><span class="c1"># Define that it&#39;s a catkin package So that it can be found by pkg </span>
-<span class="lineno">34 </span><span class="c1"># that is dependent on this package</span>
-<span class="lineno">35 </span>catkin_package<span class="o">(</span>
-<span class="lineno">36 </span>  CATKIN_DEPENDS
-<span class="lineno">37 </span>    message_runtime
-<span class="lineno">38 </span><span class="o">)</span>
+<span class="lineno">33 </span><span class="c"># Define that it&#39;s a catkin package So that it can be found by pkg </span>
+<span class="lineno">34 </span><span class="c"># that is dependent on this package</span>
+<span class="lineno">35 </span><span class="nb">catkin_package</span><span class="p">(</span>
+<span class="lineno">36 </span>  <span class="s">CATKIN_DEPENDS</span>
+<span class="lineno">37 </span>    <span class="s">message_runtime</span>
+<span class="lineno">38 </span><span class="p">)</span>
 </pre></div>
 </div>
 <p>File srv yang sudah dibuat (lihat subsection <a class="reference internal" href="#membuat-kostum-srv-file"><span class="std std-ref">Membuat kostum srv file</span></a>),
@@ -291,14 +294,6 @@ adalah jumlah kata (<em>Int32</em>) dalam kalimat tersebut.</p>
 std_msgs/Int32 num_words
 </pre></div>
 </div>
-</div>
-<div class="section" id="membuat-kostum-msg-file">
-<h2>Membuat kostum msg file<a class="headerlink" href="#membuat-kostum-msg-file" title="Link permanen untuk headline ini">¶</a></h2>
-<p>ToDo</p>
-</div>
-<div class="section" id="membuat-kostum-action-file">
-<h2>Membuat kostum action file<a class="headerlink" href="#membuat-kostum-action-file" title="Link permanen untuk headline ini">¶</a></h2>
-<p>ToDo</p>
 <p>Kemudian build package <em>ros_custom_msgs</em>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>catkin build ros_custom_msgs
 </pre></div>
@@ -313,6 +308,14 @@ std_msgs/Int32 num_words
 int32 data
 </pre></div>
 </div>
+</div>
+<div class="section" id="membuat-kostum-msg-file">
+<h2>Membuat kostum msg file<a class="headerlink" href="#membuat-kostum-msg-file" title="Link permanen untuk headline ini">¶</a></h2>
+<p>ToDo</p>
+</div>
+<div class="section" id="membuat-kostum-action-file">
+<h2>Membuat kostum action file<a class="headerlink" href="#membuat-kostum-action-file" title="Link permanen untuk headline ini">¶</a></h2>
+<p>ToDo</p>
 </div>
 </div>
 
